@@ -5,8 +5,8 @@ import cvrImage from "../../../assets/BannerMobile_4.png";
 
 const BvocCourses = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-gray-50 to-white py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className="w-full bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Top heading with icon */}
         <motion.div
@@ -14,13 +14,16 @@ const BvocCourses = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="flex items-center gap-3 mb-6"
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6"
         >
-          <Flame className="text-orange-500 w-6 h-6 animate-pulse" />
-          <p className="text-lg font-semibold uppercase font-['Poppins']">
+          <Flame className="text-orange-500 w-6 h-6 animate-pulse shrink-0" />
+          <p className="text-base sm:text-lg font-semibold uppercase font-['Poppins'] leading-snug">
             Skill Knowledge Provider of{" "}
             <span className="text-red-600">Dr. C.V. Raman University</span>{" "}
-            <a href="#" className="text-blue-600 underline hover:text-blue-800 transition">
+            <a
+              href="#"
+              className="text-blue-600 underline hover:text-blue-800 transition"
+            >
               Know More...
             </a>
           </p>
@@ -32,7 +35,7 @@ const BvocCourses = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold font-['Poppins'] mb-10 leading-snug"
+          className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold font-['Poppins'] mb-10 leading-snug text-center md:text-left"
         >
           🎓 B.Voc Courses From{" "}
           <span className="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
@@ -41,7 +44,7 @@ const BvocCourses = () => {
         </motion.h2>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* Left Side - Text */}
           <motion.div
@@ -49,8 +52,9 @@ const BvocCourses = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
             viewport={{ once: true }}
+            className="text-center lg:text-left"
           >
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-['Poppins']">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-['Poppins']">
               JIFSA is now a{" "}
               <span className="font-semibold text-red-600">
                 Skill Knowledge Provider
@@ -62,7 +66,7 @@ const BvocCourses = () => {
               <span className="text-gray-900 font-medium">Industrial Safety</span> courses.
             </p>
 
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-['Poppins']">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-['Poppins']">
               🎯 Degree courses with{" "}
               <span className="font-semibold text-gray-900">
                 multiple entry & exit points
@@ -70,20 +74,20 @@ const BvocCourses = () => {
               for flexible career growth.
             </p>
 
-            <p className="text-xl font-semibold text-gray-800 mb-6 font-['Poppins']">
+            <p className="text-lg sm:text-xl font-semibold text-gray-800 mb-6 font-['Poppins']">
               📞 Call for Information & Admission:
             </p>
 
-            <div className="flex flex-wrap gap-4 text-lg">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
               <a
                 href="tel:9407939795"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+                className="px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base"
               >
                 9407939795
               </a>
               <a
                 href="tel:7879842744"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+                className="px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base"
               >
                 7879842744
               </a>
@@ -96,12 +100,12 @@ const BvocCourses = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative group"
+            className="relative group order-1 lg:order-none"
           >
             <img
               src={cvrImage}
               alt="C.V. Raman University"
-              className="rounded-xl shadow-2xl w-full h-auto transform transition duration-500 group-hover:scale-105"
+              className="rounded-xl shadow-2xl w-full h-auto max-h-[400px] sm:max-h-[500px] object-cover transform transition duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-opacity-10 rounded-xl group-hover:bg-opacity-0 transition"></div>
           </motion.div>

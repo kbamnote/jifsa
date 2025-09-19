@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 const Navbar = () => {
   return (
     <div className="w-full top-0 z-50 shadow-md">
-      {/* Top Offer Strip */}
+      {/* Top Offer Strip (always visible) */}
       <div className="bg-amber-500 text-black text-sm py-1">
         <Marquee pauseOnHover={true} gradient={false} speed={60}>
           🚀 New Franchisee Offer Available! Please{" "}
@@ -16,13 +16,12 @@ const Navbar = () => {
         </Marquee>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="bg-gradient-to-r from-red-600 to-orange-500 text-white">
+      {/* Main Navigation (hidden on tablet and mobile) */}
+      <nav className="bg-gradient-to-r from-red-600 to-orange-500 text-white hidden lg:flex">
         <div className="max-w-[1440px] mx-auto flex items-center justify-center gap-6 md:gap-8 py-3 px-4 text-lg font-medium transition-all">
           {[
             { title: "About Jifsa", dropdown: true },
             { title: "Courses", dropdown: true },
-            { title: "Franchisee Us" },
             { title: "Residential" },
             { title: "Gallery" },
             { title: "Placements", dropdown: true },
@@ -43,10 +42,6 @@ const Navbar = () => {
                   className="transform transition-transform duration-300 group-hover:rotate-180"
                 />
               )}
-              {/* Optional: Dropdown menu placeholder */}
-              {/* <div className="absolute top-full left-0 mt-2 bg-white text-black rounded shadow-lg hidden group-hover:block">
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-100">Submenu 1</a>
-                </div> */}
             </a>
           ))}
         </div>

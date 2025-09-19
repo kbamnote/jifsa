@@ -12,6 +12,7 @@ import banner7 from "../../../assets/dtpweb8.jpg";
 import banner9 from "../../../assets/dtpweb10.jpg";
 import banner10 from "../../../assets/dtpweb11.jpg";
 import banner11 from "../../../assets/dtpweb12.jpg";
+import banner12 from '../../../assets/maxresdefault.jpg'
 
 const HeroCaraousel = () => {
   const settings = {
@@ -34,6 +35,7 @@ const HeroCaraousel = () => {
     banner5,
     banner6,
     banner7,
+   
     // banner8,
     banner9,
     banner10,

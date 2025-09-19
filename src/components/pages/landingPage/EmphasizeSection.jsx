@@ -38,18 +38,19 @@ const itemVariants = {
 
 const EmphasizeSection = () => {
   return (
-    <section className="w-full bg-white py-16 font-['Poppins']">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+    <section className="w-full bg-white py-12 sm:py-16 lg:py-20 font-['Poppins']">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
+        
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex items-center gap-2 mb-4"
+          className="flex items-center gap-2 mb-3 sm:mb-4"
         >
-          <Flame className="text-red-600 w-6 h-6" />
-          <h3 className="text-sm font-semibold uppercase text-gray-700">
+          <Flame className="text-red-600 w-5 h-5 sm:w-6 sm:h-6" />
+          <h3 className="text-xs sm:text-sm md:text-base font-semibold uppercase text-gray-700">
             Our Strength and Achievements
           </h3>
         </motion.div>
@@ -59,7 +60,7 @@ const EmphasizeSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-8 text-black"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-black leading-snug"
         >
           Our Emphasize
         </motion.h2>
@@ -70,16 +71,16 @@ const EmphasizeSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-5 text-lg md:text-xl text-gray-800"
+          className="space-y-4 sm:space-y-5 text-base sm:text-lg md:text-xl text-gray-800"
         >
           {emphasizePoints.map((point, index) => (
             <motion.li
               key={index}
               variants={itemVariants}
-              className="flex items-start gap-3"
+              className="flex items-start gap-2 sm:gap-3"
             >
-              <Flame className="text-red-600 w-5 h-5 mt-1 flex-shrink-0" />
-              <span>{point}</span>
+              <Flame className="text-red-600 w-4 h-4 sm:w-5 sm:h-5 mt-1 flex-shrink-0" />
+              <span className="leading-relaxed">{point}</span>
             </motion.li>
           ))}
         </motion.ul>
