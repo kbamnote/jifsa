@@ -98,7 +98,7 @@ const Footer = () => {
       {isVisible && (
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 bg-[#00008b] hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300"
+          className="fixed bottom-8 right-8 bg-[#00008b] hover:bg-blue-700 text-white w-12 h-12 z-20 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5" />

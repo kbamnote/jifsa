@@ -33,50 +33,53 @@ const videos = [
 
 const RecruiterAndVideos = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-white py-16 px-6 max-w-8xl mx-auto">
-      
+    <div className="bg-gradient-to-br from-gray-50 to-white py-12 md:py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+
       {/* Recruiter Companies Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <p className="text-sm font-semibold text-blue-600 uppercase mb-2">
+        <p className="text-xs sm:text-sm font-semibold text-blue-600 uppercase mb-2">
           Our Recruiter
         </p>
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-900 font-['Poppins']">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3 sm:gap-0">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 font-['Poppins']">
             Our Recruiter Companies
           </h2>
-          <button className="border border-blue-500 text-blue-600 px-4 py-2 rounded-md hover:bg-blue-50 shadow-sm transition">
+          <button className="border border-blue-500 text-blue-600 px-3 sm:px-4 py-2 rounded-md hover:bg-blue-50 shadow-sm transition text-sm sm:text-base">
             View All
           </button>
         </div>
       </motion.div>
 
+      {/* Swiper Logos */}
       <Swiper
-        spaceBetween={30}
-        slidesPerView={3}
+        spaceBetween={15}
+        slidesPerView={2}
         breakpoints={{
-          640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
+          480: { slidesPerView: 3 },
+          640: { slidesPerView: 4 },
+          768: { slidesPerView: 5 },
           1024: { slidesPerView: 6 },
+          1280: { slidesPerView: 7 },
         }}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         loop
         modules={[Autoplay]}
-        className="w-full mt-10"
+        className="w-full mt-6 sm:mt-10"
       >
         {logos.map((logo, index) => (
           <SwiperSlide key={index}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-xl p-4 flex justify-center items-center shadow hover:shadow-lg transition"
+              className="bg-white rounded-xl p-3 sm:p-4 flex justify-center items-center shadow hover:shadow-lg transition"
             >
               <img
                 src={logo}
                 alt={`Recruiter ${index + 1}`}
-                className="h-24 object-contain"
+                className="h-16 sm:h-24 object-contain"
               />
             </motion.div>
           </SwiperSlide>
@@ -88,15 +91,15 @@ const RecruiterAndVideos = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="mt-16"
+        className="mt-12 md:mt-16"
       >
-        <p className="text-sm font-semibold text-blue-600 uppercase mb-2">
+        <p className="text-xs sm:text-sm font-semibold text-blue-600 uppercase mb-2">
           Media
         </p>
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 font-['Poppins']">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 font-['Poppins']">
           Videos Gallery
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {videos.map((video, index) => (
             <motion.div
               key={index}
@@ -104,8 +107,7 @@ const RecruiterAndVideos = () => {
               className="bg-white rounded-xl shadow-md overflow-hidden"
             >
               <iframe
-                width="100%"
-                height="250"
+                className="w-full aspect-video"
                 src={video}
                 title={`YouTube video ${index + 1}`}
                 frameBorder="0"
