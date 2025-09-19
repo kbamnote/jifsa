@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import bg from '../../assets/bg-23.jpg';
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button only when user scrolls down 200px (adjust as needed)
       if (window.scrollY > 200) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,19 +24,9 @@ const Footer = () => {
         <img src={bg} alt="" className="w-full h-full object-cover" />
       </div>
 
-      <div className="max-w-8xl mx-auto relative z-10">
-        {/* Top Section - Department Contacts */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-          {/* Franchisee Department */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wide">FRANCHISEE DEPARTMENT</h3>
-            <div className="space-y-3 text-gray-200">
-              <p>Ms. Priya Malhotra</p>
-              <p>Call Us : +91-9407939795</p>
-              <p>Mail us : director@jifsa.in</p>
-            </div>
-          </div>
-
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Departments */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           {/* Counselling Department */}
           <div>
             <h3 className="text-xl font-bold mb-6 tracking-wide">COUNSELLING DEPARTMENT</h3>
@@ -46,6 +34,9 @@ const Footer = () => {
               <p>Mrs. Ratna Chakraborty</p>
               <p>Call Us : +91-7878842744</p>
               <p>Mail us : info@jifsa.in</p>
+              <p className="mt-4 text-sm text-gray-400">
+                Our team helps students with course guidance, career counselling, and all your academic queries.
+              </p>
             </div>
           </div>
 
@@ -56,67 +47,47 @@ const Footer = () => {
               <p>Ms. Priya Malhotra</p>
               <p>Call Us : +91-9407939795</p>
               <p>Mail us : info@jifsa.in</p>
+              <p className="mt-4 text-sm text-gray-400">
+                Get assistance for enrollment, scholarship guidance, and course registration from our admission experts.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Regional Offices */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* East Region */}
+        {/* Quick Links & Social Media */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           <div>
-            <h3 className="text-xl font-bold mb-6">East Region</h3>
+            <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-2 text-gray-200">
-              <li>Kolkata</li>
-              <li>Patna</li>
-              <li>Darjeeling</li>
-              <li>Ranchi</li>
-              <li>Dhanbad</li>
-              <li>Howrah</li>
+              <li><a href="#" className="hover:text-blue-300 transition">Home</a></li>
+              <li><a href="#" className="hover:text-blue-300 transition">About Us</a></li>
+              <li><a href="#" className="hover:text-blue-300 transition">Courses</a></li>
+              <li><a href="#" className="hover:text-blue-300 transition">Placement</a></li>
+              <li><a href="#" className="hover:text-blue-300 transition">Contact</a></li>
             </ul>
           </div>
 
-          {/* West Region */}
           <div>
-            <h3 className="text-xl font-bold mb-6">West Region</h3>
-            <ul className="space-y-2 text-gray-200">
-              <li>Mumbai</li>
-              <li>Pune</li>
-              <li>Nagpur</li>
-              <li>Jaipur</li>
-              <li>Surat</li>
-              <li>Ahmedabad</li>
-            </ul>
-          </div>
-
-          {/* North Region */}
-          <div>
-            <h3 className="text-xl font-bold mb-6">North Region</h3>
-            <ul className="space-y-2 text-gray-200">
-              <li>Delhi</li>
-              <li>Jaipur</li>
-              <li>Kanpur</li>
-              <li>Meerut</li>
-              <li>Surat</li>
-              <li>Agra</li>
-            </ul>
-          </div>
-
-          {/* South Region */}
-          <div>
-            <h3 className="text-xl font-bold mb-6">South Region</h3>
-            <ul className="space-y-2 text-gray-200">
-              <li>Chennai</li>
-              <li>Bangalore</li>
-              <li>Hydrabad</li>
-              <li>Visakhapatnam</li>
-              <li>Mangalore</li>
-              <li>Vellore</li>
-            </ul>
+            <h3 className="text-xl font-bold mb-6">Connect With Us</h3>
+            <div className="flex space-x-4 text-gray-200">
+              <a href="#" className="hover:text-blue-300 transition"><Facebook className="w-6 h-6" /></a>
+              <a href="#" className="hover:text-blue-300 transition"><Instagram className="w-6 h-6" /></a>
+              <a href="#" className="hover:text-blue-300 transition"><Linkedin className="w-6 h-6" /></a>
+              <a href="#" className="hover:text-blue-300 transition"><Twitter className="w-6 h-6" /></a>
+            </div>
+            <p className="mt-4 text-gray-400 text-sm">
+              Follow us for updates, news, and exclusive content.
+            </p>
           </div>
         </div>
 
+        {/* Tagline */}
+        <div className="text-center mb-8 text-gray-300">
+          <p className="italic">"Empowering students with skills for a safer tomorrow."</p>
+        </div>
+
         {/* Copyright */}
-        <div className="border-t border-blue-600 pt-6">
+        <div className="border-t border-blue-600 pt-6 text-center">
           <p className="text-gray-300 text-sm">
             © 2025 , ALL RIGHTS RESERVED, DESIGNED BY JIFSA IT DEPARTMENT
           </p>

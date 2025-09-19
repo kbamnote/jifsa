@@ -2,49 +2,32 @@ import React from "react";
 import { MapPin } from "lucide-react";
 import bgImage from "../../../assets/presence-bg.jpg"; 
 
-const locations = [
-  "MUMBAI (Mumbai-Maharashtra)",
-  "MUZZAFAR NAGAR (Jharkhand)",
-  "HYDERABAD (Telangana)",
-  "JAIPUR (Rajasthan)",
-  "CHANDRAPUR (Maharashtra)",
-  "Chhattisgarh (BASTAR)",
-  "REWA (Madhya Pradesh)",
-  "MUMBRA (Mumbai-Maharashtra)",
-  "AHMED NAGAR (Maharashtra)",
-  "JOGESHWARI (Mumbai-Maharashtra)",
-  "KOLLAM-PUNALUR (Kerala)",
-  "KORBA (Chhattisgarh)",
-  "KUCHAINA-GEVRA (Chhattisgarh)",
-  "MALAPPURAM-TIRUR (Kerala)",
-  "THANE (Mumbai-Maharashtra)",
-  "CHENNAI-PADI (Tamilnadu)",
-  "JAMSHEDPUR (Jharkhand)",
-  "LUDHIANA (Punjab)",
-  "RANCHI (Jharkhand)",
-];
-
 const Presence = () => {
   return (
-    <div
-      className="relative bg-cover bg-center py-16 px-6"
+    <section
+      className="relative bg-cover bg-center h-screen w-full"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
+      {/* Overlay */}
       <div className="absolute inset-0 bg-opacity-40"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto text-white">
-        <h2 className="text-3xl font-bold text-center mb-10">Our Presence</h2>
+      <div className="relative z-10 max-w-4xl mx-auto h-full flex flex-col justify-center items-center text-center text-white px-6">
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 font-['Poppins']">
+          Our Hub of Excellence
+        </h2>
+        <p className="text-lg md:text-xl mb-12 font-['Poppins'] text-gray-200">
+          Strategically located in <span className="text-sky-400 font-semibold">Nagpur</span> 
+          {" "}to deliver world-class training and safety education
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {locations.map((location, index) => (
-            <div key={index} className="flex items-start space-x-2">
-              <MapPin className="w-5 h-5 text-sky-400 flex-shrink-0 mt-1" />
-              <span className="text-sm">{location}</span>
-            </div>
-          ))}
+        {/* Location */}
+        <div className="flex justify-center items-center space-x-3">
+          <MapPin className="w-6 h-6 text-sky-400" />
+          <span className="text-xl md:text-2xl font-semibold">Nagpur, Maharashtra</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

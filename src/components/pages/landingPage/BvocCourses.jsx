@@ -1,60 +1,110 @@
 import React from "react";
 import { Flame } from "lucide-react"; // Fire icon
-import cvrImage from "../../../assets/BannerMobile_4.png"; // Replace with your actual image path
+import { motion } from "framer-motion"; // Animations
+import cvrImage from "../../../assets/BannerMobile_4.png";
 
 const BvocCourses = () => {
   return (
-    <section className="w-full bg-white py-12">
-      <div className="max-w-8xl mx-auto px-6 md:px-12">
+    <section className="w-full bg-gradient-to-br from-gray-50 to-white py-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        
         {/* Top heading with icon */}
-        <div className="flex items-center gap-2 mb-4">
-          <Flame className="text-orange-500 w-5 h-5" />
-          <p className="font-semibold uppercase">
-            Skill Knowledge Provider of Dr. C.V. Raman University{" "}
-            <a href="#" className="text-blue-600 underline">
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="flex items-center gap-3 mb-6"
+        >
+          <Flame className="text-orange-500 w-6 h-6 animate-pulse" />
+          <p className="text-lg font-semibold uppercase font-['Poppins']">
+            Skill Knowledge Provider of{" "}
+            <span className="text-red-600">Dr. C.V. Raman University</span>{" "}
+            <a href="#" className="text-blue-600 underline hover:text-blue-800 transition">
               Know More...
             </a>
           </p>
-        </div>
+        </motion.div>
 
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-8">
-          B.Voc Courses From University
-        </h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold font-['Poppins'] mb-10 leading-snug"
+        >
+          🎓 B.Voc Courses From{" "}
+          <span className="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
+            Dr. C.V. Raman University
+          </span>
+        </motion.h2>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          
           {/* Left Side - Text */}
-          <div>
-            <p className="text-2xl text-gray-700 leading-relaxed mb-6">
-              Now JIFSA is a Skill Knowledge Provider of Dr. C.V. Raman University under
-              B. Voc programme of UGC. JIFSA is providing skill knowledge facilities for
-              various courses to Dr. C.V. Raman University, C.G. Kota for Fire Safety and
-              Industrial Safety courses.
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-['Poppins']">
+              JIFSA is now a{" "}
+              <span className="font-semibold text-red-600">
+                Skill Knowledge Provider
+              </span>{" "}
+              of Dr. C.V. Raman University under the UGC-approved{" "}
+              <span className="text-gray-900 font-medium">B.Voc Programme</span>.  
+              We provide world-class skill knowledge facilities for{" "}
+              <span className="text-gray-900 font-medium">Fire Safety</span> and{" "}
+              <span className="text-gray-900 font-medium">Industrial Safety</span> courses.
             </p>
-            <p className="text-2xl text-gray-700 leading-relaxed mb-6">
-              Degree courses with multiple entry and exit points.
+
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-['Poppins']">
+              🎯 Degree courses with{" "}
+              <span className="font-semibold text-gray-900">
+                multiple entry & exit points
+              </span>{" "}
+              for flexible career growth.
             </p>
-            <p className="text-2xl font-medium text-gray-800">
-              Please call for information and admission{" "}
-              <a href="tel:9407939795" className="text-blue-600 underline">
+
+            <p className="text-xl font-semibold text-gray-800 mb-6 font-['Poppins']">
+              📞 Call for Information & Admission:
+            </p>
+
+            <div className="flex flex-wrap gap-4 text-lg">
+              <a
+                href="tel:9407939795"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+              >
                 9407939795
-              </a>{" "}
-              /{" "}
-              <a href="tel:7879842744" className="text-blue-600 underline">
+              </a>
+              <a
+                href="tel:7879842744"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+              >
                 7879842744
               </a>
-            </p>
-          </div>
+            </div>
+          </motion.div>
 
           {/* Right Side - Image */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative group"
+          >
             <img
               src={cvrImage}
-              alt="CV Raman University"
-              className="rounded-lg shadow-md w-full h-auto"
+              alt="C.V. Raman University"
+              className="rounded-xl shadow-2xl w-full h-auto transform transition duration-500 group-hover:scale-105"
             />
-          </div>
+            <div className="absolute inset-0 bg-opacity-10 rounded-xl group-hover:bg-opacity-0 transition"></div>
+          </motion.div>
         </div>
       </div>
     </section>
