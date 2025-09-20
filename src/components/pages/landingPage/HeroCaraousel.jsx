@@ -1,18 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
 
-// import banner1 from "../../../assets/dtpweb1.jpg";
-// import banner2 from "../../../assets/dtpweb2.jpg";
-// import banner3 from "../../../assets/dtpweb3.jpg";
-// import banner4 from "../../../assets/dtpweb5.jpg";
-// import banner5 from "../../../assets/dtpweb6.jpg";
-// import banner6 from "../../../assets/dtpweb7.jpg";
-// import banner7 from "../../../assets/dtpweb8.jpg";
-// import banner8 from "../../../assets/dtpweb9.jpg";
-// import banner9 from "../../../assets/dtpweb10.jpg";
-// import banner10 from "../../../assets/dtpweb11.jpg";
-// import banner11 from "../../../assets/dtpweb12.jpg";
-import banner12 from '../../../assets/bannerOne.png'
+import banner1 from "../../../assets/b12.jpg";
+import banner2 from "../../../assets/b2.jpg";
+import banner3 from "../../../assets/b3.jpg";
+import banner4 from "../../../assets/b4.jpg";
+import banner5 from "../../../assets/b5.jpg";
+import banner6 from "../../../assets/b6.jpg";
+import banner7 from "../../../assets/b7.jpg";
+import banner8 from "../../../assets/b8.jpg";
+import banner9 from "../../../assets/b9.jpg";
+import banner10 from "../../../assets/b10.jpg";
+import banner12 from '../../../assets/b1.jpg'
 
 const HeroCaraousel = () => {
   const settings = {
@@ -29,18 +28,16 @@ const HeroCaraousel = () => {
 
   const banners = [
     banner12,
-    // banner1,
-    // banner2,
-    // banner3,
-    // banner4,
-    // banner5,
-    // banner6,
-    // banner7,
-   
-    // banner8,
-    // banner9,
-    // banner10,
-    // banner11,
+    banner1,
+    banner2,
+    banner3,
+    banner4,
+    banner5,
+    banner6,
+    banner7,
+    banner8,
+    banner9,
+    banner10,
   ];
 
   return (
