@@ -8,14 +8,11 @@ const Navbar = () => {
     <div className="w-full top-0 z-50 shadow-md">
       {/* Top Offer Strip */}
       <div className="bg-teal-800 text-white text-sm py-1">
-        <Marquee pauseOnHover={true} gradient={false} speed={60}>
-          🚀 New Franchisee Offer Available! Please{" "}
-          <a href="#" className="text-teal-200 underline mx-1 font-semibold">
-            Click here
-          </a>
-          to Know More.
-        </Marquee>
-      </div>
+  <Marquee pauseOnHover={true} gradient={false} speed={60}>
+    🌟 Welcome to Our Website! Stay tuned for exciting updates. &nbsp;  
+  </Marquee>
+</div>
+
 
       {/* Main Navigation */}
       <nav className="bg-gradient-to-r from-blue-800 to-blue-600 text-white hidden lg:flex">
