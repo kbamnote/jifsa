@@ -75,12 +75,12 @@ const FirstAidSection = () => {
             {/* Contact Info */}
             <p className="font-medium text-gray-900">
               Please call for information and admission{" "}
-              <a href="tel:9407939795" className="text-blue-600 underline">
-                9407939795
+              <a href="tel:9860111868" className="text-blue-600 underline">
+                9860111868
               </a>{" "}
               /{" "}
-              <a href="tel:7879842744" className="text-blue-600 underline">
-                7879842744
+              <a href="tel:8855885807" className="text-blue-600 underline">
+                8855885807
               </a>
             </p>
 

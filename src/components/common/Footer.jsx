@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import bg from '../../assets/bg-23.jpg';
-import { ArrowUp, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { ArrowUp, Facebook, Instagram, Linkedin, Twitter, Phone, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,6 +16,21 @@ const Footer = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleCallbackRequest = () => {
+    // You can implement your callback request logic here
+    // For example: open a modal, redirect to a form, or make an API call
+    alert("Callback request feature - implement your logic here");
+    // Example: window.location.href = "/request-callback";
+  };
+
+  const handleWhatsAppChat = () => {
+    // Replace with your actual WhatsApp business number
+    const phoneNumber = "917878842744"; // Remove + and spaces from the phone number
+    const message = "Hi! I'd like to know more about your courses.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <footer className="bg-[#0F4C81] text-white py-16 px-8 relative overflow-hidden">
@@ -94,15 +109,39 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Scroll to top button */}
+      {/* Floating Action Buttons */}
       {isVisible && (
-        <button 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 bg-[#00008b] hover:bg-blue-700 text-white w-12 h-12 z-20 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="w-5 h-5" />
-        </button>
+        <div className="fixed bottom-8 right-8 flex flex-col space-y-4 z-20">
+          {/* WhatsApp Button */}
+          <button 
+            onClick={handleWhatsAppChat}
+            className="bg-green-500 hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300 group"
+            aria-label="Chat on WhatsApp"
+            title="Say Hi on WhatsApp"
+          >
+            <MessageCircle className="w-5 h-5" />
+          </button>
+
+          {/* Request Callback Button */}
+          <button 
+            onClick={handleCallbackRequest}
+            className="bg-orange-500 hover:bg-orange-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300 group"
+            aria-label="Request a callback"
+            title="Request a Callback"
+          >
+            <Phone className="w-5 h-5" />
+          </button>
+
+          {/* Scroll to top button */}
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="bg-[#00008b] hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300"
+            aria-label="Scroll to top"
+            title="Back to Top"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </button>
+        </div>
       )}
     </footer>
   );

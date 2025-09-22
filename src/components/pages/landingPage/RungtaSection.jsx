@@ -87,22 +87,22 @@ const RungtaSection = () => {
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
               <a
-                href="tel:9407939795"
+                href="tel:9860111868"
                 className="px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base"
               >
-                9407939795
+                9860111868
               </a>
               <a
-                href="tel:7021288226"
+                href="tel:8855885807"
                 className="px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base"
               >
-                7021288226
+                8855885807
               </a>
               <a
-                href="tel:7039089670"
+                href="tel:9503182807"
                 className="px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base"
               >
-                7039089670
+                9503182807
               </a>
             </div>
           </motion.div>
