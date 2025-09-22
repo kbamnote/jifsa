@@ -16,17 +16,14 @@ const Footer = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleCallbackRequest = () => {
-    // You can implement your callback request logic here
-    // For example: open a modal, redirect to a form, or make an API call
-    alert("Callback request feature - implement your logic here");
-    // Example: window.location.href = "/request-callback";
-  };
+const handleCallbackRequest = () => {
+  const phoneNumber = "+919860111868"; // Use the same number shown in Counselling dept.
+  window.location.href = `tel:${phoneNumber}`;
+};
 
   const handleWhatsAppChat = () => {
     // Replace with your actual WhatsApp business number
-    const phoneNumber = "917878842744"; // Remove + and spaces from the phone number
+    const phoneNumber = "919860111868"; // Remove + and spaces from the phone number
     const message = "Hi! I'd like to know more about your courses.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
