@@ -1,6 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -19,31 +20,48 @@ const Navbar = () => {
       {/* Main Navigation */}
       <nav className="bg-gradient-to-r from-blue-800 to-blue-600 text-white hidden lg:flex">
         <div className="max-w-[1440px] mx-auto flex items-center justify-center gap-6 md:gap-8 py-3 px-4 text-lg font-medium transition-all">
-          {[
-            { title: "About Jifsa", dropdown: true },
-            { title: "Courses", dropdown: true },
-            { title: "Residential" },
-            { title: "Gallery" },
-            { title: "Placements", dropdown: true },
-            { title: "Logins", dropdown: true },
-            { title: "Careers" },
-            { title: "Students Corner" },
-            { title: "Contact Us", dropdown: true },
-          ].map((item, idx) => (
-            <a
-              href="#"
-              key={idx}
-              className="flex items-center gap-1 relative hover:text-gray-200 transition-colors duration-300 group"
-            >
-              {item.title}
-              {item.dropdown && (
-                <ChevronDown
-                  size={14}
-                  className="transform transition-transform duration-300 group-hover:rotate-180"
-                />
-              )}
-            </a>
-          ))}
+         {[
+  { title: "About Jifsa", dropdown: true },
+  { title: "Courses", dropdown: true },
+  { title: "Residential" },
+  { title: "Gallery", link: "/gallery" },
+  { title: "Placements", dropdown: true },
+  { title: "Logins", dropdown: true },
+  { title: "Careers" },
+  { title: "Students Corner" },
+  { title: "Contact Us", link: "/contact" },
+].map((item, idx) => 
+  item.link ? ( // If the item has a link, use Link
+    <Link
+      to={item.link}
+      key={idx}
+      className="flex items-center gap-1 relative hover:text-gray-200 transition-colors duration-300 group"
+    >
+      {item.title}
+      {item.dropdown && (
+        <ChevronDown
+          size={14}
+          className="transform transition-transform duration-300 group-hover:rotate-180"
+        />
+      )}
+    </Link>
+  ) : (
+    <a
+      href="#"
+      key={idx}
+      className="flex items-center gap-1 relative hover:text-gray-200 transition-colors duration-300 group"
+    >
+      {item.title}
+      {item.dropdown && (
+        <ChevronDown
+          size={14}
+          className="transform transition-transform duration-300 group-hover:rotate-180"
+        />
+      )}
+    </a>
+  )
+)}
+
         </div>
       </nav>
     </div>
