@@ -23,7 +23,7 @@ const Navbar = () => {
          {[
   { title: "About Jifsa", dropdown: true },
   { title: "Courses", dropdown: true },
-  { title: "Residential" },
+  { title: "Residential" ,link: "/resedent" },
   { title: "Gallery", link: "/gallery" },
   { title: "Placements", dropdown: true },
   { title: "Logins", dropdown: true },

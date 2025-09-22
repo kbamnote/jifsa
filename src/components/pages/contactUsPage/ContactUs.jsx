@@ -34,7 +34,7 @@ const ContactUs = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="w-full h-60 sm:h-72 bg-gradient-to-r from-red-600 to-red-700 text-white flex justify-center items-center"
+        className="w-full p-8 h-60 sm:h-72 bg-gradient-to-r from-red-600 to-red-700 text-white flex justify-center items-center"
       >
         <div className="text-center">
           <motion.h1 
