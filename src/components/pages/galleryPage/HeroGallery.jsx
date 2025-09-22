@@ -128,7 +128,7 @@ const HeroGallery = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="w-full h-32 sm:h-40 bg-gradient-to-r from-gray-700 to-gray-800 text-white flex justify-center items-center"
+        className="w-full h-32 sm:h-40 bg-gradient-to-r from-red-600 to-red-700 text-white flex justify-center items-center"
       >
         <div className="text-center">
           <motion.h1 
@@ -139,12 +139,7 @@ const HeroGallery = () => {
           >
             Gallery
           </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, width: 0 }}
-            animate={{ opacity: 1, width: "60px" }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="h-1 bg-red-600 mx-auto"
-          ></motion.div>
+      
         </div>
       </motion.div>
 
