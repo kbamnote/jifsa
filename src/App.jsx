@@ -19,8 +19,8 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/gallery" element={<HeroGallery />} />
         <Route path="/resedent" element={<ResedentPage />} />
-        <Route path="/vision-mission" element={<JifsaVandM/>}/>
-        <Route path="/membership" element={<MembershipAndAcc/>}/>
+        <Route path="/vision-mission" element={<JifsaVandM />} />
+        <Route path="/membership" element={<MembershipAndAcc />} />
         <Route path="/qualifications" element={<CoursePage/>} />
                 <Route path="/online-courses" element={<OnlineCoursePage/>} />
                    <Route path="/fire-safety-faqs" element={<FaqPage/>} />
