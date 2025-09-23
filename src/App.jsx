@@ -4,6 +4,9 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import ContactUs from './components/pages/contactUsPage/ContactUs';
 import HeroGallery from './components/pages/galleryPage/HeroGallery';
 import ResedentPage from './components/pages/resedentialPage/ResedentPage';
+import CoursePage from './components/pages/coursesPage/qualificationPage/CoursePage';
+import OnlineCoursePage from './components/pages/coursesPage/onlineCoursePage/OnlineCoursePage';
+import FaqPage from './components/pages/coursesPage/faqPage/FaqPage';
 
 function App() {
   return (
@@ -13,6 +16,13 @@ function App() {
          <Route path="/contact" element={<ContactUs/>} />
            <Route path="/gallery" element={<HeroGallery/>} />
               <Route path="/resedent" element={<ResedentPage/>} />
+               <Route path="/resedent" element={<ResedentPage/>} />
+                <Route path="/qualifications" element={<CoursePage/>} />
+                <Route path="/online-courses" element={<OnlineCoursePage/>} />
+                   <Route path="/fire-safety-faqs" element={<FaqPage/>} />
+             
+                
+               
       </Routes>
      
 <SpeedInsights/>

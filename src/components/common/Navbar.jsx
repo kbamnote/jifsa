@@ -23,7 +23,6 @@ const navItems = [
     submenu: [
       { title: "Qualifications", link: "/qualifications" },
       { title: "Online Courses", link: "/online-courses" },
-      { title: "Online Learning Portal", link: "/learning-portal" },
       { title: "Fire & Safety FAQs", link: "/fire-safety-faqs" },
     ],
   },
@@ -70,11 +69,15 @@ const navItems = [
   return (
     <div className="w-full top-0 z-50 shadow-md">
       {/* Top Strip */}
-      <div className="bg-teal-800 text-white text-sm py-1">
-        <Marquee pauseOnHover={true} gradient={false} speed={60}>
-          🌟 Welcome to Our Website! Stay tuned for exciting updates.&nbsp;
-        </Marquee>
-      </div>
+     <div className="bg-teal-800 text-white text-sm py-1">
+  <Marquee pauseOnHover={true} gradient={false} speed={60}>
+    🌟 Welcome to the Elite Group of Companies — featuring 
+<span className="ml-2 text-yellow-300 font-semibold">JIFSA</span>, 
+a leader in education and training.
+
+  </Marquee>
+</div>
+
 
       {/* Main Navigation */}
       <nav className="bg-gradient-to-r from-blue-800 to-blue-600 text-white hidden lg:flex">
