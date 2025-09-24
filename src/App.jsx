@@ -13,6 +13,12 @@ import AdvisoryBoard from "./components/pages/aboutUsPage/dropdown/advisory-boar
 import ChairmanMessage from "./components/pages/aboutUsPage/dropdown/chairman-message/ChairmanMessage";
 import VchairpersonMessage from "./components/pages/aboutUsPage/dropdown/vice-chairperson-message/VchairpersonMessage";
 import DirectorsMessage from "./components/pages/aboutUsPage/dropdown/director-message/DirectorsMessage";
+import RecruitedStudent from "./components/pages/placementPage/recruitedStudent/RecruitedStudent";
+import StudentTestimonial from "./components/pages/placementPage/studentTestimonialPage/StudentTestimonial";
+import ScopeFire from "./components/pages/placementPage/scopeFireAndSafety/ScopeFire";
+import DemandPage from "./components/pages/placementPage/demandAndSupplyPage/DemandPage";
+import FutureProspectAndScope from "./components/pages/placementPage/futureProspects/FutureProspectAndScope";
+import SafetyProgramAndCareer from "./components/pages/placementPage/safetyProgram/SafetyProgramAndCareer";
 
 function App() {
   return (
@@ -31,6 +37,15 @@ function App() {
         <Route path="/qualifications" element={<CoursePage />} />
         <Route path="/online-courses" element={<OnlineCoursePage />} />
         <Route path="/fire-safety-faqs" element={<FaqPage />} />
+  <Route path="/recruited-students" element={<RecruitedStudent/>} />
+          <Route path="/student-testimonials" element={<StudentTestimonial/>} />
+          
+           <Route path="/scope-fire-safety" element={<ScopeFire/>} />
+           <Route path="/demand-supply-fire-safety" element={<DemandPage/>} />
+
+  <Route path="/future-prospects" element={<FutureProspectAndScope/>} />
+    <Route path="/safety-career" element={<SafetyProgramAndCareer/>} />
+  
       </Routes>
 
       <SpeedInsights />
