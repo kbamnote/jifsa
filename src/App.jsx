@@ -27,6 +27,7 @@ import PlacementFormPage from "./components/pages/studendCornerPage/placementFor
 import StudentPage from "./components/pages/studendCornerPage/studentComplaintPage/StudentPage";
 import CertificationPage from "./components/pages/studendCornerPage/certificateVerificationPage/CertificationPage";
 import MarksheetPage from "./components/pages/studendCornerPage/marksheetCorectionPage/MarksheetPage";
+import Careers from "./components/pages/careers/Careers";
 
 function App() {
   return (
@@ -65,6 +66,8 @@ function App() {
         <Route path="/student-complaint" element={<StudentPage/>}/>
         <Route path="/certificate-verification" element={<CertificationPage/>}/>
         <Route path="/marksheet-correction" element={<MarksheetPage/>}/>
+
+        <Route path="/careers" element={<Careers/>}/>
 
       </Routes>
 

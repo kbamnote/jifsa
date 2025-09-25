@@ -49,7 +49,7 @@ const Navbar = () => {
     { title: "Residential", link: "/resedent" },
     { title: "Gallery", link: "/gallery" },
    
-    { title: "Careers" },
+    { title: "Careers", link: "/careers" },
     {
       title: "Students Corner",
       dropdown: true,
