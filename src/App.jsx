@@ -21,6 +21,12 @@ import FutureProspectAndScope from "./components/pages/placementPage/futureProsp
 import SafetyProgramAndCareer from "./components/pages/placementPage/safetyProgram/SafetyProgramAndCareer";
 import PlacementCellPage from "./components/pages/placementPage/placementCell/PlacementCellPage";
 import PressReleasePage from "./components/pages/placementPage/pressReleasePage/PressReleasePage";
+import AdmissionForm from "./components/pages/studendCornerPage/admisssionFormPage/AdmissionForm";
+import PracticalTrainingForm from "./components/pages/studendCornerPage/practicalTrainingForm/PracticalTrainingForm";
+import PlacementFormPage from "./components/pages/studendCornerPage/placementFormPage/PlacementFormPage";
+import StudentPage from "./components/pages/studendCornerPage/studentComplaintPage/StudentPage";
+import CertificationPage from "./components/pages/studendCornerPage/certificateVerificationPage/CertificationPage";
+import MarksheetPage from "./components/pages/studendCornerPage/marksheetCorectionPage/MarksheetPage";
 
 function App() {
   return (
@@ -52,6 +58,14 @@ function App() {
         <Route path="/safety-career" element={<SafetyProgramAndCareer />} />
         <Route path="/placement-cell" element={<PlacementCellPage />} />
         <Route path="/press-release" element={<PressReleasePage />} />
+
+        <Route path="/admission-form" element={<AdmissionForm/>}/>
+        <Route path="/practical-training-forms" element={<PracticalTrainingForm/>}/>
+        <Route path="/placement-forms" element={<PlacementFormPage/>}/>
+        <Route path="/student-complaint" element={<StudentPage/>}/>
+        <Route path="/certificate-verifications" element={<CertificationPage/>}/>
+        <Route path="/marksheet-correction" element={<MarksheetPage/>}/>
+
       </Routes>
 
       <SpeedInsights />
