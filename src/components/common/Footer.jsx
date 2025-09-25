@@ -23,7 +23,7 @@ const handleCallbackRequest = () => {
 
   const handleWhatsAppChat = () => {
     // Replace with your actual WhatsApp business number
-    const phoneNumber = "8855885807"; // Remove + and spaces from the phone number
+    const phoneNumber = "+918855885807"; // Remove + and spaces from the phone number
     const message = "Hi! I'd like to know more about your courses.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
