@@ -9,6 +9,6 @@ export const getDetail = () => {
 }
 
 export const addDetail = (detail) => {
-    return Api.post("create-form", detail);
+    return Api.post("post/create-form", detail);
 }
 
