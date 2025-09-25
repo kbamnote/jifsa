@@ -28,10 +28,10 @@ const JifsaVandM = () => {
             About JIFSA
           </h1>
           <p className="text-xs sm:text-sm">
-            <Link to="/" className="hover:underline">
-              HOME
-            </Link>{" "}
-            <span className="mx-2">&gt;</span> ABOUT JIFSA
+       
+           Your ambition, our dedication.
+            
+          
           </p>
         </div>
       </div>
