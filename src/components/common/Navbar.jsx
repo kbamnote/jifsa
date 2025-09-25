@@ -4,80 +4,90 @@ import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-const navItems = [
-  {
-    title: "About Jifsa",
-    dropdown: true,
-    submenu: [
-      { title: "JIFSA Vision & Mission", link: "/vision-mission" },
-      { title: "Membership & Accreditation", link: "/membership" },
-      { title: "Advisory Board", link: "/advisory-board" },
-      { title: "Chairman Message", link: "/chairman-message" },
-      { title: "Vice-Chairperson Message", link: "/vice-chairperson-message" },
-      { title: "Directors Message", link: "/directors-message" },
-    ],
-  },
-  {
-    title: "Courses",
-    dropdown: true,
-    submenu: [
-      { title: "Qualifications", link: "/qualifications" },
-      { title: "Online Courses", link: "/online-courses" },
-      { title: "Fire & Safety FAQs", link: "/fire-safety-faqs" },
-    ],
-  },
-  {
-    title: "Placements",
-    dropdown: true,
-    submenu: [
-      { title: "Recruited Students", link: "/recruited-students" },
-      { title: "Students Testimonials", link: "/student-testimonials" },
-      { title: "Scope Of Fire & Safety", link: "/scope-fire-safety" },
-      { title: "Demand & Supply Of Fire & Safety", link: "/demand-supply-fire-safety" },
-      { title: "Future Prospects", link: "/future-prospects" },
-      { title: "Safety Programmes & Career", link: "/safety-career" },
-      { title: "Our Placement Cell", link: "/placement-cell" },
-      { title: "Press Release", link: "/press-release" },
-    ],
-  },
-  { title: "Residential", link: "/resedent" },
-  { title: "Gallery", link: "/gallery" },
-  {
-    title: "Logins",
-    dropdown: true,
-    submenu: [
-      { title: "Daily Reporting", link: "/daily-reporting" },
-      { title: "Facilation Center", link: "/facilation-center" },
-    ],
-  },
-  { title: "Careers" },
-  {
-    title: "Students Corner",
-    dropdown: true,
-    submenu: [
-      { title: "Admission Form", link: "/admission-form" },
-      { title: "Practical Training Forms", link: "/practical-training-forms" },
-      { title: "Placement Forms", link: "/placement-forms" },
-      { title: "Student Complaint", link: "/student-complaint" },
-      { title: "Certificate Verification", link: "/certificate-verification" },
-      { title: "Marksheet Correction", link: "/marksheet-correction" },
-    ],
-  },
-  { title: "Contact Us", link: "/contact" },
-];
+  const navItems = [
+    {
+      title: "About Jifsa",
+      dropdown: true,
+      submenu: [
+        { title: "JIFSA Vision & Mission", link: "/vision-mission" },
+        { title: "Membership & Accreditation", link: "/membership" },
+        { title: "Advisory Board", link: "/advisory-board" },
+        { title: "Chairman Message", link: "/chairman-message" },
+        {
+          title: "Vice-Chairperson Message",
+          link: "/vice-chairperson-message",
+        },
+        { title: "Directors Message", link: "/directors-message" },
+      ],
+    },
+    {
+      title: "Courses",
+      dropdown: true,
+      submenu: [
+        { title: "Qualifications", link: "/qualifications" },
+        { title: "Online Courses", link: "/online-courses" },
+        { title: "Fire & Safety FAQs", link: "/fire-safety-faqs" },
+      ],
+    },
+    {
+      title: "Placements",
+      dropdown: true,
+      submenu: [
+        { title: "Recruited Students", link: "/recruited-students" },
+        { title: "Students Testimonials", link: "/student-testimonials" },
+        { title: "Scope Of Fire & Safety", link: "/scope-fire-safety" },
+        {
+          title: "Demand & Supply Of Fire & Safety",
+          link: "/demand-supply-fire-safety",
+        },
+        { title: "Future Prospects", link: "/future-prospects" },
+        { title: "Safety Programmes & Career", link: "/safety-career" },
+        { title: "Our Placement Cell", link: "/placement-cell" },
+        { title: "Press Release", link: "/press-release" },
+      ],
+    },
+    { title: "Residential", link: "/resedent" },
+    { title: "Gallery", link: "/gallery" },
+    {
+      title: "Logins",
+      dropdown: true,
+      submenu: [
+        { title: "Daily Reporting", link: "/daily-reporting" },
+        { title: "Facilation Center", link: "/facilation-center" },
+      ],
+    },
+    { title: "Careers" },
+    {
+      title: "Students Corner",
+      dropdown: true,
+      submenu: [
+        { title: "Admission Form", link: "/admission-form" },
+        {
+          title: "Practical Training Forms",
+          link: "/practical-training-forms",
+        },
+        { title: "Placement Forms", link: "/placement-forms" },
+        { title: "Student Complaint", link: "/student-complaint" },
+        {
+          title: "Certificate Verification",
+          link: "/certificate-verification",
+        },
+        { title: "Marksheet Correction", link: "/marksheet-correction" },
+      ],
+    },
+    { title: "Contact Us", link: "/contact" },
+  ];
 
   return (
     <div className="w-full top-0 z-50 shadow-md">
       {/* Top Strip */}
-     <div className="bg-teal-800 text-white text-sm py-1">
-  <Marquee pauseOnHover={true} gradient={false} speed={60}>
-    🌟 Welcome to the Elite Group of Companies — featuring 
-<span className="ml-2 text-yellow-300 font-semibold">JIFSA</span>, 
-a leader in education and training.
-
-  </Marquee>
-</div>
-
+      <div className="bg-teal-800 text-white text-lg py-1">
+        <Marquee pauseOnHover={true} gradient={false} speed={60}>
+          🌟 Welcome to the Elite Group of Companies — featuring
+          <span className="ml-2 text-yellow-300 font-bold">JIFSA</span>, a
+          leader in education, training and placement.
+        </Marquee>
+      </div>
 
       {/* Main Navigation */}
       <nav className="bg-gradient-to-r from-blue-800 to-blue-600 text-white hidden lg:flex">

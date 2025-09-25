@@ -43,8 +43,8 @@ const handleCallbackRequest = () => {
           <div>
             <h3 className="text-xl font-bold mb-6 tracking-wide">COUNSELLING DEPARTMENT</h3>
             <div className="space-y-3 text-gray-200">
-              <p>Mrs. Ratna Chakraborty</p>
-              <p>Call Us : +91-7878842744</p>
+              <p>Nityanjana Soni</p>
+              <p>Call Us : +91-7276568807</p>
               <p>Mail us : info@jifsa.in</p>
               <p className="mt-4 text-sm text-gray-400">
                 Our team helps students with course guidance, career counselling, and all your academic queries.
@@ -56,8 +56,8 @@ const handleCallbackRequest = () => {
           <div>
             <h3 className="text-xl font-bold mb-6 tracking-wide">ADMISSION DEPARTMENT</h3>
             <div className="space-y-3 text-gray-200">
-              <p>Ms. Priya Malhotra</p>
-              <p>Call Us : +91-9407939795</p>
+              <p>Ms. Vaishali Bhandari</p>
+              <p>Call Us : +91-8799959224</p>
               <p>Mail us : info@jifsa.in</p>
               <p className="mt-4 text-sm text-gray-400">
                 Get assistance for enrollment, scholarship guidance, and course registration from our admission experts.
