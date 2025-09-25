@@ -61,7 +61,7 @@ const HeroCaraousel = () => {
   <span className="flex items-center gap-1">
     📢 New Jobs are posted, please view{" "}
     <a 
-      href="#" 
+      href="/careers" 
       className="text-blue-600 hover:underline font-medium"
     >
       here
@@ -70,7 +70,7 @@ const HeroCaraousel = () => {
   <span className="flex items-center gap-1">
     ✅ Certificate Verification, please click{" "}
     <a 
-      href="#" 
+      href="/certificate-verification" 
       className="text-green-600 hover:underline font-medium"
     >
       here
