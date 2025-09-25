@@ -1,33 +1,50 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import leftImage from '../../../assets/image-40.jpg';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import leftImage from "../../../assets/image-40.jpg";
+import { addDetail } from "../../utils/Api"; 
 
 function ContactForm() {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    message: ''
+    firstName: "",
+    email: "",
+    phoneNo: "",
+    message: "",
   });
   const [isVerified, setIsVerified] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    console.log(formData);
+    
     e.preventDefault();
     if (!isVerified) {
-      alert('Please complete the reCAPTCHA verification');
+      alert("Please complete the reCAPTCHA verification");
       return;
     }
-    console.log('Form submitted:', formData);
+
+    try {
+      setLoading(true);
+      const response = await addDetail(formData);
+      console.log("Form submitted:", response.data);
+
+      alert("✅ Message sent successfully!");
+      setFormData({ firstName: "", email: "", phoneNo: "", message: "" }); // ✅ fixed keys
+      setIsVerified(false);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("❌ Failed to send message. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
-      
       {/* Left Panel */}
       <div className="md:w-1/3 relative hidden md:flex items-end justify-center">
         <img
@@ -56,19 +73,22 @@ function ContactForm() {
             <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
               Don't Hesitate
             </h2>
-            <p className="text-gray-600 text-sm md:text-base">to send your message to us</p>
+            <p className="text-gray-600 text-sm md:text-base">
+              to send your message to us
+            </p>
           </div>
 
-          <form className="space-y-4 md:space-y-6">
-            {/* Full Name & Email */}
+          <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+            {/* First Name & Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <motion.input
                 type="text"
-                name="fullName"
+                name="firstName"   // ✅ fixed
                 placeholder="Full Name"
-                value={formData.fullName}
+                value={formData.firstName}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition"
+                required
               />
               <motion.input
                 type="email"
@@ -77,17 +97,19 @@ function ContactForm() {
                 value={formData.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition"
+                required
               />
             </div>
 
             {/* Phone */}
             <motion.input
               type="tel"
-              name="phone"
+              name="phoneNo"   // ✅ fixed
               placeholder="Phone"
-              value={formData.phone}
+              value={formData.phoneNo}
               onChange={handleInputChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition"
+              required
             />
 
             {/* Message */}
@@ -98,6 +120,7 @@ function ContactForm() {
               onChange={handleInputChange}
               rows={4}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition resize-vertical"
+              required
             />
 
             {/* reCAPTCHA */}
@@ -120,12 +143,14 @@ function ContactForm() {
 
             {/* Submit */}
             <motion.button
-              type="button"
-              onClick={handleSubmit}
+              type="submit"
               whileHover={{ scale: 1.05 }}
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 rounded-xl transition duration-200 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 outline-none"
+              disabled={loading}
+              className={`w-full ${
+                loading ? "bg-gray-400" : "bg-red-500 hover:bg-red-600"
+              } text-white font-medium py-3 rounded-xl transition duration-200 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 outline-none`}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </motion.button>
           </form>
         </motion.div>
