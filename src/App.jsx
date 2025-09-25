@@ -19,6 +19,8 @@ import ScopeFire from "./components/pages/placementPage/scopeFireAndSafety/Scope
 import DemandPage from "./components/pages/placementPage/demandAndSupplyPage/DemandPage";
 import FutureProspectAndScope from "./components/pages/placementPage/futureProspects/FutureProspectAndScope";
 import SafetyProgramAndCareer from "./components/pages/placementPage/safetyProgram/SafetyProgramAndCareer";
+import PlacementCellPage from "./components/pages/placementPage/placementCell/PlacementCellPage";
+import PressReleasePage from "./components/pages/placementPage/pressReleasePage/PressReleasePage";
 
 function App() {
   return (
@@ -45,7 +47,11 @@ function App() {
 
   <Route path="/future-prospects" element={<FutureProspectAndScope/>} />
     <Route path="/safety-career" element={<SafetyProgramAndCareer/>} />
+     <Route path="/placement-cell" element={<PlacementCellPage/>} />
+
+     <Route path="/press-release" element={<PressReleasePage/>} />gi
   
+ 
       </Routes>
 
       <SpeedInsights />
