@@ -30,22 +30,24 @@ function App() {
         <Route path="/resedent" element={<ResedentPage />} />
         <Route path="/vision-mission" element={<JifsaVandM />} />
         <Route path="/membership" element={<MembershipAndAcc />} />
-        <Route path="/advisory-board" element={<AdvisoryBoard/>}/>
-        <Route path="/chairman-message" element={<ChairmanMessage/>}/>
-        <Route path="/vice-chairperson-message" element={<VchairpersonMessage/>}/>
-        <Route path="/directors-message" element={<DirectorsMessage/>}/>
+        <Route path="/advisory-board" element={<AdvisoryBoard />} />
+        <Route path="/chairman-message" element={<ChairmanMessage />} />
+        <Route
+          path="/vice-chairperson-message"
+          element={<VchairpersonMessage />}
+        />
+        <Route path="/directors-message" element={<DirectorsMessage />} />
         <Route path="/qualifications" element={<CoursePage />} />
         <Route path="/online-courses" element={<OnlineCoursePage />} />
         <Route path="/fire-safety-faqs" element={<FaqPage />} />
-  <Route path="/recruited-students" element={<RecruitedStudent/>} />
-          <Route path="/student-testimonials" element={<StudentTestimonial/>} />
-          
-           <Route path="/scope-fire-safety" element={<ScopeFire/>} />
-           <Route path="/demand-supply-fire-safety" element={<DemandPage/>} />
+        <Route path="/recruited-students" element={<RecruitedStudent />} />
+        <Route path="/student-testimonials" element={<StudentTestimonial />} />
 
-  <Route path="/future-prospects" element={<FutureProspectAndScope/>} />
-    <Route path="/safety-career" element={<SafetyProgramAndCareer/>} />
-  
+        <Route path="/scope-fire-safety" element={<ScopeFire />} />
+        <Route path="/demand-supply-fire-safety" element={<DemandPage />} />
+
+        <Route path="/future-prospects" element={<FutureProspectAndScope />} />
+        <Route path="/safety-career" element={<SafetyProgramAndCareer />} />
       </Routes>
 
       <SpeedInsights />

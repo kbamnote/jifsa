@@ -28,7 +28,7 @@ const experts = [
     id: 4,
     title: "Admission",
     desc: "Admission and Enquiry",
-    numbers: ["+91-9860111868", "+91-8855885807"],
+    numbers: ["+91-7276568807", "+91-8799959224"],
     color: "from-red-400 to-red-600",
   },
   {
@@ -49,7 +49,7 @@ const experts = [
     id: 7,
     title: "Admission Residential & Offline",
     desc: "Course at campus",
-    numbers: ["+91-9860111868", "+91-8855885807"],
+    numbers: ["+91-7276568807", "+91-8799959224"],
     color: "from-yellow-400 to-yellow-500",
   },
 ];
