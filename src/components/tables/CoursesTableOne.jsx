@@ -107,7 +107,7 @@ const CoursesTableOne = () => {
           <span>
             To know more about courses please{" "}
             <span className="text-blue-600 font-semibold cursor-pointer hover:underline">
-              call us
+              call us: 7276568807
             </span>
           </span>
         </motion.div>
