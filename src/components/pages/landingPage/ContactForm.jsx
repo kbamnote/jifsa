@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import leftImage from "../../../assets/image-40.jpg";
 import { addDetail } from "../../utils/Api"; 
 
@@ -12,6 +12,7 @@ function ContactForm() {
   });
   const [isVerified, setIsVerified] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,21 +24,27 @@ function ContactForm() {
     
     e.preventDefault();
     if (!isVerified) {
-      alert("Please complete the reCAPTCHA verification");
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 5000);
       return;
     }
 
     try {
       setLoading(true);
+      setSubmitStatus(null);
       const response = await addDetail(formData);
       console.log("Form submitted:", response.data);
 
-      alert("✅ Message sent successfully!");
-      setFormData({ firstName: "", email: "", phoneNo: "", message: "" }); // ✅ fixed keys
+      setSubmitStatus('success');
+      setFormData({ firstName: "", email: "", phoneNo: "", message: "" });
       setIsVerified(false);
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("❌ Failed to send message. Please try again later.");
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 5000);
     } finally {
       setLoading(false);
     }
@@ -56,7 +63,7 @@ function ContactForm() {
         <div className="relative p-6 md:p-8 text-center text-white">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">Get In Touch</h2>
           <p className="text-sm md:text-base">
-            We’d love to hear from you. Let’s build something great together!
+            We'd love to hear from you. Let's build something great together!
           </p>
         </div>
       </div>
@@ -69,6 +76,44 @@ function ContactForm() {
           transition={{ duration: 0.8 }}
           className="w-full max-w-lg md:max-w-2xl bg-white p-6 md:p-10 rounded-3xl shadow-xl"
         >
+          {/* Success/Error Message */}
+          <AnimatePresence>
+            {submitStatus && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className={`mb-6 p-4 rounded-xl text-center ${
+                  submitStatus === 'success'
+                    ? 'bg-green-100 border border-green-300 text-green-800'
+                    : 'bg-red-100 border border-red-300 text-red-800'
+                }`}
+              >
+                {submitStatus === 'success' ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-medium">Message sent successfully!</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center space-x-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-medium">
+                      {!isVerified && submitStatus === 'error' 
+                        ? 'Please complete the reCAPTCHA verification'
+                        : 'Failed to send message. Please try again later.'
+                      }
+                    </span>
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <div className="mb-6 md:mb-8 text-center">
             <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
               Don't Hesitate
@@ -83,7 +128,7 @@ function ContactForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <motion.input
                 type="text"
-                name="firstName"   // ✅ fixed
+                name="firstName"
                 placeholder="Full Name"
                 value={formData.firstName}
                 onChange={handleInputChange}
@@ -104,7 +149,7 @@ function ContactForm() {
             {/* Phone */}
             <motion.input
               type="tel"
-              name="phoneNo"   // ✅ fixed
+              name="phoneNo"
               placeholder="Phone"
               value={formData.phoneNo}
               onChange={handleInputChange}
@@ -123,23 +168,7 @@ function ContactForm() {
               required
             />
 
-            {/* reCAPTCHA */}
-            <div className="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-3 p-3 md:p-4 border border-gray-300 rounded-xl bg-gray-50">
-              <input
-                type="checkbox"
-                id="recaptcha"
-                checked={isVerified}
-                onChange={(e) => setIsVerified(e.target.checked)}
-                className="w-5 h-5 text-red-500 border-2 border-gray-300 rounded focus:ring-red-500"
-              />
-              <label htmlFor="recaptcha" className="text-sm text-gray-700">
-                I'm not a robot
-              </label>
-              <div className="ml-auto text-xs text-gray-500 text-right">
-                reCAPTCHA
-                <div>Privacy - Terms</div>
-              </div>
-            </div>
+         
 
             {/* Submit */}
             <motion.button
