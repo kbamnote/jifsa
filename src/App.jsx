@@ -63,7 +63,7 @@ function App() {
         <Route path="/practical-training-forms" element={<PracticalTrainingForm/>}/>
         <Route path="/placement-forms" element={<PlacementFormPage/>}/>
         <Route path="/student-complaint" element={<StudentPage/>}/>
-        <Route path="/certificate-verifications" element={<CertificationPage/>}/>
+        <Route path="/certificate-verification" element={<CertificationPage/>}/>
         <Route path="/marksheet-correction" element={<MarksheetPage/>}/>
 
       </Routes>

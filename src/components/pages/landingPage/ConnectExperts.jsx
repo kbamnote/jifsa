@@ -21,7 +21,7 @@ const experts = [
     id: 3,
     title: "First AID",
     desc: "Course & Enquiry",
-    numbers: ["+91-8855885807"],
+    numbers: ["+91-7276735659"],
     color: "from-cyan-400 to-cyan-600",
   },
   {
@@ -35,7 +35,7 @@ const experts = [
     id: 5,
     title: "Franchisee",
     desc: "Services and Enquiry",
-    numbers: ["+91-9860111868", "+91-8855885807"],
+    numbers: ["+91-9860111868", "+91-7276735659"],
     color: "from-gray-400 to-gray-600",
   },
   {

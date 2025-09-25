@@ -48,14 +48,7 @@ const Navbar = () => {
     },
     { title: "Residential", link: "/resedent" },
     { title: "Gallery", link: "/gallery" },
-    {
-      title: "Logins",
-      dropdown: true,
-      submenu: [
-        { title: "Daily Reporting", link: "/daily-reporting" },
-        { title: "Facilation Center", link: "/facilation-center" },
-      ],
-    },
+   
     { title: "Careers" },
     {
       title: "Students Corner",
