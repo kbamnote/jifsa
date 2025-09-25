@@ -1,17 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
 
-import banner1 from "../../../assets/b12.jpg";
-import banner2 from "../../../assets/b2.jpg";
-import banner3 from "../../../assets/b3.jpg";
-import banner4 from "../../../assets/b4.jpg";
-import banner5 from "../../../assets/b5.jpg";
-import banner6 from "../../../assets/b6.jpg";
-import banner7 from "../../../assets/b7.jpg";
-import banner8 from "../../../assets/b8.jpg";
-import banner9 from "../../../assets/b9.jpg";
-import banner10 from "../../../assets/b10.jpg";
-import banner12 from '../../../assets/b1.jpg'
+import banner1 from "../../../assets/b12.webp";
+import banner2 from "../../../assets/b2.webp";
+import banner3 from "../../../assets/b3.webp";
+import banner4 from "../../../assets/b4.webp";
+import banner5 from "../../../assets/b5.webp";
+import banner6 from "../../../assets/b6.webp";
+import banner7 from "../../../assets/b7.webp";
+import banner8 from "../../../assets/b8.webp";
+import banner9 from "../../../assets/b9.webp";
+import banner10 from "../../../assets/b10.webp";
+import banner12 from '../../../assets/b1.webp'
 
 const HeroCaraousel = () => {
   const settings = {
