@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import leftImage from "../../../assets/GovernerAward.jpg";
+import leftImage from "../../../assets/GovernerAward.webp";
 
 const HonourPage = () => {
   return (
