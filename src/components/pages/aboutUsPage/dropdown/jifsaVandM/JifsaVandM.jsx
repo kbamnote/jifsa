@@ -29,7 +29,7 @@ const JifsaVandM = () => {
           </h1>
           <p className="text-xs sm:text-sm">
        
-           Your ambition, our dedication.
+       Your help is our endeavor
             
           
           </p>
