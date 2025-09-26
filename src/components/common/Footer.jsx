@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import bg from '../../assets/bg-23.jpg';
 import { ArrowUp, Facebook, Instagram, Linkedin, Twitter, Phone, MessageCircle } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -70,13 +71,33 @@ const handleCallbackRequest = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
-            <ul className="space-y-2 text-gray-200">
-              <li><a href="#" className="hover:text-blue-300 transition">Home</a></li>
-              <li><a href="#" className="hover:text-blue-300 transition">About Us</a></li>
-              <li><a href="#" className="hover:text-blue-300 transition">Courses</a></li>
-              <li><a href="#" className="hover:text-blue-300 transition">Placement</a></li>
-              <li><a href="#" className="hover:text-blue-300 transition">Contact</a></li>
-            </ul>
+           <ul className="space-y-2 text-gray-200">
+  <li>
+    <Link to="/" className="hover:text-blue-300 transition">
+      Home
+    </Link>
+  </li>
+  <li>
+    <Link to="/vision-mission" className="hover:text-blue-300 transition">
+      About Us
+    </Link>
+  </li>
+  <li>
+    <Link to="/qualifications" className="hover:text-blue-300 transition">
+      Courses
+    </Link>
+  </li>
+  <li>
+    <Link to="/placement-cell" className="hover:text-blue-300 transition">
+      Placement
+    </Link>
+  </li>
+  <li>
+    <Link to="/contact" className="hover:text-blue-300 transition">
+      Contact
+    </Link>
+  </li>
+</ul>
           </div>
 
           <div>

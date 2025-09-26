@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import leftImage from "../../../assets/GovernerAward.webp";
+import { Link } from "react-router-dom";
 
 const HonourPage = () => {
   return (
@@ -48,6 +49,7 @@ const HonourPage = () => {
             health and safety.
           </p>
 
+<Link to="/vision-mission">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -55,7 +57,9 @@ const HonourPage = () => {
           >
             Read More
           </motion.button>
+          </Link>
         </motion.div>
+        
       </div>
     </section>
   );

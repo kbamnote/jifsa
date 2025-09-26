@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // ✅ FIXED import
 
 import noimage from "../../../assets/noimageW.jpg";
 import one from '../../../assets/AMANKUNWAR.jpg'
@@ -21,6 +22,9 @@ const students = [
   { name: "AMAN KHAN", company: "L&T Construction", designation: "Site Safety Engineer", image: six },
   { name: "ROHIT SHARMA", company: "Essar Power", designation: "Safety Officer", image: four },
 ];
+
+// ✅ Create a motion-wrapped Link
+const MotionLink = motion(Link);
 
 const PlacementSection = () => {
   return (
@@ -117,15 +121,16 @@ const PlacementSection = () => {
             Accidents often occur at both the industrial as well as residential premises; they can be caused by machinery, chemicals, gases, electricity, radiation, fire, etc.
           </motion.p>
 
-          <motion.a
+          {/* ✅ Fixed motion Link */}
+          <MotionLink
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            href="#"
+            to="/placement-cell"
             className="text-blue-600 font-semibold hover:underline inline-flex items-center"
           >
             &gt; More About Placement
-          </motion.a>
+          </MotionLink>
         </div>
       </div>
     </section>

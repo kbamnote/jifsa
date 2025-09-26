@@ -53,7 +53,7 @@ const StudentPage = () => {
             </a>
           </p>
           <p className="text-gray-700 text-sm mb-6">
-            📞 Call us: <b className="text-gray-900">9203911183</b>
+            📞 Call us: <b className="text-gray-900">9860111868</b>
           </p>
 
           {/* Success Message */}
