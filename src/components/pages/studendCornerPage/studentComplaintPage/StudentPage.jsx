@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../../common/Header";
 import Navbar from "../../../common/Navbar";
 import Footer from "../../../common/Footer";
+import { addComplain } from "../../../utils/Api"; // ✅ import your API function
 
 const StudentPage = () => {
   const [formData, setFormData] = useState({
@@ -12,26 +13,51 @@ const StudentPage = () => {
     complaint: "",
   });
 
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(null); // null | "success" | "error"
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    console.log(formData);
+    
     e.preventDefault();
-    setSuccess(true);
+    setLoading(true);
+    setSuccess(null);
 
-    // Clear input fields
-    setFormData({
-      fullName: "",
-      studentId: "",
-      email: "",
-      phone: "",
-      complaint: "",
-    });
+    try {
+      // prepare API body (match backend fields)
+      const payload = {
+        fullName: formData.fullName,
+        studentId: formData.studentId,
+        email: formData.email,
+        phoneNo: formData.phone, // ✅ backend expects "phoneNo"
+        message: formData.complaint, // ✅ backend expects "message"
+      };
 
-    setTimeout(() => setSuccess(false), 4000);
+      await addComplain(payload);
+
+      setSuccess("success");
+
+      // Clear input fields
+      setFormData({
+        fullName: "",
+        studentId: "",
+        email: "",
+        phone: "",
+        complaint: "",
+      });
+    } catch (error) {
+      console.error("Error submitting complaint:", error);
+      setSuccess("error");
+    } finally {
+      setLoading(false);
+
+      // Auto hide after 4s
+      setTimeout(() => setSuccess(null), 4000);
+    }
   };
 
   return (
@@ -56,11 +82,17 @@ const StudentPage = () => {
             📞 Call us: <b className="text-gray-900">9203911183</b>
           </p>
 
-          {/* Success Message */}
-          {success && (
+          {/* Status Messages */}
+          {success === "success" && (
             <div className="mb-6 flex items-center gap-2 p-4 rounded-lg bg-green-100 text-green-700 border border-green-400">
               <span className="text-xl">✅</span>
               <span>Your complaint has been submitted successfully!</span>
+            </div>
+          )}
+          {success === "error" && (
+            <div className="mb-6 flex items-center gap-2 p-4 rounded-lg bg-red-100 text-red-700 border border-red-400">
+              <span className="text-xl">❌</span>
+              <span>Something went wrong. Please try again later.</span>
             </div>
           )}
 
@@ -143,9 +175,14 @@ const StudentPage = () => {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold py-3 rounded-lg shadow-md hover:from-red-600 hover:to-red-700 transition-all"
+              disabled={loading}
+              className={`w-full ${
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700"
+              } text-white font-semibold py-3 rounded-lg shadow-md transition-all`}
             >
-              File Complaint
+              {loading ? "Submitting..." : "File Complaint"}
             </button>
           </form>
         </div>

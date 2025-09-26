@@ -10,10 +10,11 @@ export const addDetail = (detail) => {
 }
 
 export const addComplain = (detail) => {
-    return Api.post("complain/create-form", detail);
+    return Api.post("complaint/create-form", detail);
 }
 
-export const deleteComplain = (detail) => {
-    return Api.post("complain/create-form", detail);
+
+export const addAdmissionForm = (detail) => {
+    return Api.post("admission-form/create-form", detail);
 }
 

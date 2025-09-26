@@ -10,7 +10,7 @@ const ContactUs = () => {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    phoneNo: '',
     message: ''
   });
 
@@ -25,6 +25,8 @@ const ContactUs = () => {
   };
 
   const handleSubmit = async (e) => {
+    console.log(formData);
+    
     e.preventDefault();
     setLoading(true);
     setSubmitStatus(null);
@@ -35,7 +37,7 @@ const ContactUs = () => {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
-        phone: formData.phone,
+        phoneNo: formData.phoneNo,
         message: formData.message
       };
 
@@ -50,7 +52,7 @@ const ContactUs = () => {
         firstName: '',
         lastName: '',
         email: '',
-        phone: '',
+        phoneNo: '',
         message: ''
       });
 
@@ -350,9 +352,9 @@ const ContactUs = () => {
                   </label>
                   <input
                     type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
+                    id="phoneNo"
+                    name="phoneNo"
+                    value={formData.phoneNo}
                     onChange={handleInputChange}
                     required
                     disabled={loading}
