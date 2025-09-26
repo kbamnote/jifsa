@@ -69,6 +69,8 @@ function App() {
           <Route path="/student-complaint" element={<StudentPage />} />
           <Route path="/certificate-verification" element={<CertificationPage />} />
           <Route path="/marksheet-correction" element={<MarksheetPage />} />
+          <Route path="/vice-chairperson-message" element={<VchairpersonMessage />} />
+
 
           <Route path="/careers" element={<Careers />} />
         </Routes>

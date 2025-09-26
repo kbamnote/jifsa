@@ -4,11 +4,16 @@ const Api = axios.create({
     baseURL:'https://jifsa-backend.onrender.com/'
 })
 
-export const getDetail = () => {
-    return Api.get('get/read-form')
-}
 
 export const addDetail = (detail) => {
-    return Api.post("post/create-form", detail);
+    return Api.post("form/create-form", detail);
+}
+
+export const addComplain = (detail) => {
+    return Api.post("complain/create-form", detail);
+}
+
+export const deleteComplain = (detail) => {
+    return Api.post("complain/create-form", detail);
 }
 
