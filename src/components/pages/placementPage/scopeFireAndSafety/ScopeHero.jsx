@@ -1,5 +1,6 @@
 import React from "react";
 import bannerImg from "../../../../assets/banner17alt.jpg"; // your bg image
+import { Link } from "react-router-dom";
 
 const ScopeHero = () => {
   return (
@@ -23,7 +24,7 @@ const ScopeHero = () => {
 
         {/* Breadcrumb */}
         <div className="mt-2 text-sm md:text-base font-medium">
-          <span className="hover:text-gray-200 cursor-pointer">HOME</span>
+          <Link to="/"> <span className="hover:text-gray-200 cursor-pointer">HOME</span></Link>
           <span className="mx-2">{">"}</span>
           <span className="text-gray-300">CONTACT</span>
         </div>

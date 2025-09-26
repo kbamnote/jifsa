@@ -12,7 +12,9 @@ const PracticalTrainingForm = () => {
     <>
       <Header />
       <Navbar />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 p-6">
+
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 via-white to-blue-100 p-6">
+        
         {/* Title */}
         <h1 className="text-2xl md:text-3xl font-bold text-red-600 underline mb-10 text-center">
           Practical Training Forms
@@ -67,12 +69,13 @@ const PracticalTrainingForm = () => {
           <div className="mt-10 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 rounded-md text-base md:text-lg">
             <p>
               📞 For any further query or doubt regarding practical training, please
-              contact: <span className="font-semibold">8855885807</span> <br />
+              contact: <span className="font-semibold">+91 8855885807</span> <br />
               (<span className="italic">Basant Bareth, Practical Coordinator</span>)
             </p>
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import bannerImg from "../../../../assets/banner20alt.jpg";
+import { Link } from "react-router-dom";
 
 const OnlineCourseHero = () => {
   return (
@@ -23,7 +24,7 @@ const OnlineCourseHero = () => {
 
           {/* Breadcrumb */}
           <div className="mt-4 text-sm text-gray-300">
-            <span className="hover:text-white cursor-pointer">HOME</span> &gt;{" "}
+           <Link to="/"><span className="hover:text-white cursor-pointer">HOME</span></Link>  &gt;{" "}
             <span className="text-white font-medium">
              ONLINE COURSES
             </span>

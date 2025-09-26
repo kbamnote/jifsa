@@ -9,7 +9,7 @@ const PlacementFormPage = () => {
     <>
       <Header />
       <Navbar />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 p-6">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 via-white to-blue-100 p-6">
         {/* Title */}
         <h1 className="text-2xl md:text-3xl font-bold text-blue-600 underline mb-10 text-center">
           Placement Forms
