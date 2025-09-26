@@ -19,6 +19,7 @@ import logo11 from "../../../assets/Our Recruiter Companies 28.jpg";
 import logo12 from "../../../assets/Our Recruiter Companies 28.jpg";
 import logo13 from "../../../assets/Our Recruiter Companies 27.jpg";
 import logo14 from "../../../assets/Our Recruiter Companies 26.jpg";
+import { Link } from "react-router-dom";
 
 const logos = [
   logo1, logo2, logo3, logo4, logo5, logo6, logo7,
@@ -48,9 +49,11 @@ const RecruiterAndVideos = () => {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 font-['Poppins']">
             Our Recruiter Companies
           </h2>
+          <Link to="/recruited-students">
           <button className="border border-blue-500 text-blue-600 px-3 sm:px-4 py-2 rounded-md hover:bg-blue-50 shadow-sm transition text-sm sm:text-base">
             View All
           </button>
+          </Link>
         </div>
       </motion.div>
 

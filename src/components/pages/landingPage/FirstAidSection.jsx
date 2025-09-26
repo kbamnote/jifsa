@@ -84,15 +84,7 @@ const FirstAidSection = () => {
               </a>
             </p>
 
-            {/* CTA Button */}
-            <div className="pt-2 flex justify-start sm:justify-start md:justify-start lg:justify-start">
-              <a
-                href="#"
-                className="inline-flex items-center justify-center bg-red-600 text-white text-sm sm:text-base md:text-lg font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg shadow-md hover:bg-red-700 hover:scale-105 transition-transform duration-300"
-              >
-                Know More...
-              </a>
-            </div>
+          
           </motion.div>
         </div>
       </div>

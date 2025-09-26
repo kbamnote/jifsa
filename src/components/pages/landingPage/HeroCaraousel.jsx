@@ -12,6 +12,7 @@ import banner8 from "../../../assets/b8.webp";
 import banner9 from "../../../assets/b9.webp";
 import banner10 from "../../../assets/b10.webp";
 import banner12 from '../../../assets/b1.webp'
+import { Link } from "react-router-dom";
 
 const HeroCaraousel = () => {
   const settings = {
@@ -60,21 +61,21 @@ const HeroCaraousel = () => {
   <div className="bg-gray-100 shadow-sm rounded-md px-4 py-2 flex flex-wrap  gap-4 text-gray-800 text-sm md:text-base">
   <span className="flex items-center gap-1">
     📢 New Jobs are posted, please view{" "}
-    <a 
-      href="/careers" 
+    <Link
+      to="/careers" 
       className="text-blue-600 hover:underline font-medium"
     >
       here
-    </a>
+    </Link>
   </span>
   <span className="flex items-center gap-1">
     ✅ Certificate Verification, please click{" "}
-    <a 
-      href="/certificate-verification" 
+    <Link
+      to="/certificate-verification" 
       className="text-green-600 hover:underline font-medium"
     >
       here
-    </a>
+    </Link>
   </span>
 </div>
 

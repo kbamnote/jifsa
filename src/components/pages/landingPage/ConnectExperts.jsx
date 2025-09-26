@@ -81,18 +81,7 @@ const ConnectExperts = () => {
           Connect With Experts
         </motion.h2>
 
-        {/* All Services button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="flex justify-end mb-6"
-        >
-          <button className="px-5 py-2 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition font-semibold">
-            All Services
-          </button>
-        </motion.div>
+    
 
         {/* Experts Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -20,12 +20,7 @@ const BvocCourses = () => {
           <p className="text-base sm:text-lg font-semibold uppercase font-['Poppins'] leading-snug">
             Skill Knowledge Provider of{" "}
             <span className="text-red-600">Dr. C.V. Raman University</span>{" "}
-            <a
-              href="#"
-              className="text-blue-600 underline hover:text-blue-800 transition"
-            >
-              Know More...
-            </a>
+           
           </p>
         </motion.div>
 
