@@ -48,7 +48,6 @@ function App() {
           <Route path="/membership" element={<MembershipAndAcc />} />
           <Route path="/advisory-board" element={<AdvisoryBoard />} />
           <Route path="/chairman-message" element={<ChairmanMessage />} />
-          <Route path="/vice-chairperson-message" element={<VchairpersonMessage />} />
           <Route path="/directors-message" element={<DirectorsMessage />} />
           <Route path="/qualifications" element={<CoursePage />} />
           <Route path="/online-courses" element={<OnlineCoursePage />} />

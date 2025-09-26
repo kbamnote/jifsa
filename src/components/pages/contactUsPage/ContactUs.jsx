@@ -111,7 +111,7 @@ const ContactUs = () => {
                     </div>
                     <h3 className="font-bold text-gray-900 font-['Poppins']">Call for inquiry</h3>
                   </div>
-                  <p className="text-gray-600 font-medium font-['Poppins']">+257 388-6895</p>
+                  <p className="text-gray-600 font-medium font-['Poppins']">+91 8855885807</p>
                 </motion.div>
 
                 {/* Email */}
@@ -138,7 +138,7 @@ const ContactUs = () => {
                     </div>
                     <h3 className="font-bold text-gray-900 font-['Poppins']">Send us email</h3>
                   </div>
-                  <p className="text-gray-600 font-medium font-['Poppins']">kramulous@sbcglobal.net</p>
+                  <p className="text-gray-600 font-medium font-['Poppins']"> jifsaadmissions@gmail.com</p>
                 </motion.div>
 
                 {/* Hours */}
@@ -165,7 +165,7 @@ const ContactUs = () => {
                     </div>
                     <h3 className="font-bold text-gray-900 font-['Poppins']">Opening hours</h3>
                   </div>
-                  <p className="text-gray-600 font-medium font-['Poppins']">Mon - Fri: 10AM - 10PM</p>
+                  <p className="text-gray-600 font-medium font-['Poppins']">Mon - Sat: 10AM - 7PM</p>
                 </motion.div>
 
                 {/* Location */}
@@ -199,7 +199,7 @@ const ContactUs = () => {
                     <h3 className="font-bold text-gray-900 font-['Poppins']">Office</h3>
                   </div>
                   <p className="text-gray-600 font-medium font-['Poppins']">
-                    501, 5th Floor Mohota Apartment, Behind State Bank Of India Katol Road, Chhaoni Rd, Nagpur, Maharashtra 440013
+                    1st Floor Mohota Complex, Above State Bank Of India Katol Road, Chhaoni Rd, Nagpur, Maharashtra 440013
                   </p>
                 </motion.div>
               </div>

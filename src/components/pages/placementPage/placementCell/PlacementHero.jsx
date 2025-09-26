@@ -1,5 +1,6 @@
 import React from "react";
 import bannerImg from "../../../../assets/placementbanner.jpg";
+import { Link } from "react-router-dom";
 
 const PlacementHero = () => {
   return (
@@ -23,7 +24,7 @@ const PlacementHero = () => {
 
           {/* Breadcrumb */}
           <div className="mt-4 text-sm text-gray-300">
-            <span className="hover:text-white cursor-pointer">HOME</span> &gt;{" "}
+           <Link to="/"> <span className="hover:text-white cursor-pointer">HOME</span></Link> &gt;{" "}
             <span className="text-white font-medium">
        ABOUT THE CELL   
             </span>

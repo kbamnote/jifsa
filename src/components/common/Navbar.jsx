@@ -13,10 +13,6 @@ const Navbar = () => {
         { title: "Membership & Accreditation", link: "/membership" },
         { title: "Advisory Board", link: "/advisory-board" },
         { title: "Chairman Message", link: "/chairman-message" },
-        {
-          title: "Vice-Chairperson Message",
-          link: "/vice-chairperson-message",
-        },
         { title: "Directors Message", link: "/directors-message" },
       ],
     },
