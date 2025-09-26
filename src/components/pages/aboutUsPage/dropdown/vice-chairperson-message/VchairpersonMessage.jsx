@@ -4,7 +4,7 @@ import Navbar from '../../../../common/Navbar'
 import Footer from '../../../../common/Footer'
 import banner from "../../../../../assets/ban4.jpg";
 import { Link } from 'react-router-dom'
-import VCContent from './VcContent/VCContent';
+import VCContent from './vcContent/VCContent';
 
 const VchairpersonMessage = () => {
   return (

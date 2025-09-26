@@ -13,3 +13,7 @@ export const addComplain = (detail) => {
     return Api.post("complain/create-form", detail);
 }
 
+export const deleteComplain = (detail) => {
+    return Api.post("complain/create-form", detail);
+}
+
