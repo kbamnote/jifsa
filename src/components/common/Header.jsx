@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, memo } from "react";
 import { Mail, Phone, Menu } from "lucide-react";
-import logo1 from "../../assets/logo.png";
+import logo1 from "../../assets/jifsaLogo.png";
 import logo2 from "../../assets/logoDishpng.png";
 import logo3 from "../../assets/riu.png";
 import logo4 from "../../assets/DGMS_h_Logo.jpg";
