@@ -33,20 +33,9 @@ export default defineConfig({
       }
     },
     sourcemap: false,
-    brotliSize: true,
-    chunkSizeWarningLimit: 1000
+    brotliSize: true
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom']
-  },
-  css: {
-    postcss: {
-      plugins: [
-        require('autoprefixer'),
-        require('cssnano')({
-          preset: 'default'
-        })
-      ]
-    }
   }
 })

@@ -89,3 +89,11 @@ export const generateResponsiveImageSources = (baseUrl, sizes = [320, 480, 768, 
     media: `(max-width: ${size}px)`
   }));
 };
+
+// Optimize image URL with parameters (placeholder function for compatibility)
+export const optimizeImageURL = (src, options = {}) => {
+  // In a real implementation, this would modify the image URL to include
+  // optimization parameters like width, quality, format, etc.
+  // For now, we'll just return the source as is
+  return src;
+};
