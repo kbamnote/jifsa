@@ -43,8 +43,8 @@ const SafetyCoursesTable = () => {
   };
 
   const handleSubmit = () => {
-    alert("Form submitted!");
-    closeModal();
+    
+ 
   };
 
   return (

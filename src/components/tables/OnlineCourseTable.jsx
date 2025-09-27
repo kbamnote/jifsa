@@ -43,8 +43,7 @@
       };
     
       const handleSubmit = () => {
-        alert("Form submitted!");
-        closeModal();
+     
       };
     
       return (

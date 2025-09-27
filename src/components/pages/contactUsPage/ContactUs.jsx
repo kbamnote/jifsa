@@ -4,15 +4,19 @@ import Header from "../../common/Header";
 import Navbar from "../../common/Navbar";
 import Footer from "../../common/Footer";
 import SEO from "../../seo/SEO";
+import { addDetail } from "../../utils/Api"; // Import the API function
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    phoneNo: '',
     message: ''
   });
+
+  const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const handleInputChange = (e) => {
     setFormData({
@@ -21,10 +25,44 @@ const ContactUs = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    console.log(formData);
+    
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    setLoading(true);
+    setSubmitStatus(null);
+
+    try {
+      // Prepare the data for API
+      const detailData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNo: formData.phoneNo,
+        message: formData.message
+      };
+
+      // Call the API
+      const response = await addDetail(detailData);
+      
+      console.log('Form submitted successfully:', response.data);
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNo: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -228,6 +266,27 @@ const ContactUs = () => {
                 </p>
               </div>
 
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-green-100 border border-green-300 text-green-700 rounded-lg font-['Poppins']"
+                >
+                  ✅ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-100 border border-red-300 text-red-700 rounded-lg font-['Poppins']"
+                >
+                  ❌ Sorry, there was an error sending your message. Please try again or contact us directly.
+                </motion.div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <motion.div whileFocus={{ scale: 1.02 }}>
@@ -235,7 +294,7 @@ const ContactUs = () => {
                       htmlFor="firstName"
                       className="block text-sm font-bold text-gray-700 mb-2 font-['Poppins']"
                     >
-                      First Name
+                      First Name *
                     </label>
                     <input
                       type="text"
@@ -243,7 +302,9 @@ const ContactUs = () => {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins']"
+                      required
+                      disabled={loading}
+                      className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins'] disabled:bg-gray-100 disabled:cursor-not-allowed"
                       placeholder="Your first name"
                     />
                   </motion.div>
@@ -252,7 +313,7 @@ const ContactUs = () => {
                       htmlFor="lastName"
                       className="block text-sm font-bold text-gray-700 mb-2 font-['Poppins']"
                     >
-                      Last Name
+                      Last Name *
                     </label>
                     <input
                       type="text"
@@ -260,7 +321,9 @@ const ContactUs = () => {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins']"
+                      required
+                      disabled={loading}
+                      className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins'] disabled:bg-gray-100 disabled:cursor-not-allowed"
                       placeholder="Your last name"
                     />
                   </motion.div>
@@ -271,7 +334,7 @@ const ContactUs = () => {
                     htmlFor="email"
                     className="block text-sm font-bold text-gray-700 mb-2 font-['Poppins']"
                   >
-                    Email Address
+                    Email Address *
                   </label>
                   <input
                     type="email"
@@ -279,7 +342,9 @@ const ContactUs = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins']"
+                    required
+                    disabled={loading}
+                    className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins'] disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="your.email@example.com"
                   />
                 </motion.div>
@@ -289,15 +354,17 @@ const ContactUs = () => {
                     htmlFor="phone"
                     className="block text-sm font-bold text-gray-700 mb-2 font-['Poppins']"
                   >
-                    Phone Number
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
+                    id="phoneNo"
+                    name="phoneNo"
+                    value={formData.phoneNo}
                     onChange={handleInputChange}
-                    className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins']"
+                    required
+                    disabled={loading}
+                    className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins'] disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="Your phone number"
                   />
                 </motion.div>
@@ -307,7 +374,7 @@ const ContactUs = () => {
                     htmlFor="message"
                     className="block text-sm font-bold text-gray-700 mb-2 font-['Poppins']"
                   >
-                    Message
+                    Message *
                   </label>
                   <textarea
                     id="message"
@@ -315,18 +382,31 @@ const ContactUs = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins']"
+                    required
+                    disabled={loading}
+                    className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins'] disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="Tell us about your interest in our courses..."
                   />
                 </motion.div>
 
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 font-['Poppins'] text-lg"
+                  whileHover={{ scale: loading ? 1 : 1.05 }}
+                  whileTap={{ scale: loading ? 1 : 0.95 }}
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 font-['Poppins'] text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
-                  Send Message
+                  {loading ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending Message...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </motion.button>
               </form>
             </motion.div>
