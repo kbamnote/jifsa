@@ -1,44 +1,50 @@
 import { Routes, Route } from "react-router-dom";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import React, { Suspense, lazy } from "react";
-
-// Lazy import for LandingPage
-const LandingPage = lazy(() => import("./components/pages/landingPage/LandingPage"));
-
-// Normal imports for other pages
-import ContactUs from "./components/pages/contactUsPage/ContactUs";
-import HeroGallery from "./components/pages/galleryPage/HeroGallery";
-import ResedentPage from "./components/pages/resedentialPage/ResedentPage";
-import JifsaVandM from "./components/pages/aboutUsPage/dropdown/jifsaVandM/JifsaVandM";
-import MembershipAndAcc from "./components/pages/aboutUsPage/dropdown/membership-and-acc/MembershipAndAcc";
-import CoursePage from "./components/pages/coursesPage/qualificationPage/CoursePage";
-import OnlineCoursePage from "./components/pages/coursesPage/onlineCoursePage/OnlineCoursePage";
-import FaqPage from "./components/pages/coursesPage/faqPage/FaqPage";
-import AdvisoryBoard from "./components/pages/aboutUsPage/dropdown/advisory-board/AdvisoryBoard";
-import ChairmanMessage from "./components/pages/aboutUsPage/dropdown/chairman-message/ChairmanMessage";
-import VchairpersonMessage from "./components/pages/aboutUsPage/dropdown/vice-chairperson-message/VchairpersonMessage";
-import DirectorsMessage from "./components/pages/aboutUsPage/dropdown/director-message/DirectorsMessage";
-import RecruitedStudent from "./components/pages/placementPage/recruitedStudent/RecruitedStudent";
-import StudentTestimonial from "./components/pages/placementPage/studentTestimonialPage/StudentTestimonial";
-import ScopeFire from "./components/pages/placementPage/scopeFireAndSafety/ScopeFire";
-import DemandPage from "./components/pages/placementPage/demandAndSupplyPage/DemandPage";
-import FutureProspectAndScope from "./components/pages/placementPage/futureProspects/FutureProspectAndScope";
-import SafetyProgramAndCareer from "./components/pages/placementPage/safetyProgram/SafetyProgramAndCareer";
-import PlacementCellPage from "./components/pages/placementPage/placementCell/PlacementCellPage";
-import PressReleasePage from "./components/pages/placementPage/pressReleasePage/PressReleasePage";
-import AdmissionForm from "./components/pages/studendCornerPage/admisssionFormPage/AdmissionForm";
-import PracticalTrainingForm from "./components/pages/studendCornerPage/practicalTrainingForm/PracticalTrainingForm";
-import PlacementFormPage from "./components/pages/studendCornerPage/placementFormPage/PlacementFormPage";
-import StudentPage from "./components/pages/studendCornerPage/studentComplaintPage/StudentPage";
-import CertificationPage from "./components/pages/studendCornerPage/certificateVerificationPage/CertificationPage";
-import MarksheetPage from "./components/pages/studendCornerPage/marksheetCorectionPage/MarksheetPage";
-import Careers from "./components/pages/careers/Careers";
 import Loading from "./components/common/Loading";
+import StructuredData from "./components/seo/StructuredData";
+
+// Lazy imports for all pages to improve initial load time
+const LandingPage = lazy(() => import("./components/pages/landingPage/LandingPage"));
+const ContactUs = lazy(() => import("./components/pages/contactUsPage/ContactUs"));
+const HeroGallery = lazy(() => import("./components/pages/galleryPage/HeroGallery"));
+const ResedentPage = lazy(() => import("./components/pages/resedentialPage/ResedentPage"));
+const JifsaVandM = lazy(() => import("./components/pages/aboutUsPage/dropdown/jifsaVandM/JifsaVandM"));
+const MembershipAndAcc = lazy(() => import("./components/pages/aboutUsPage/dropdown/membership-and-acc/MembershipAndAcc"));
+const CoursePage = lazy(() => import("./components/pages/coursesPage/qualificationPage/CoursePage"));
+const OnlineCoursePage = lazy(() => import("./components/pages/coursesPage/onlineCoursePage/OnlineCoursePage"));
+const FaqPage = lazy(() => import("./components/pages/coursesPage/faqPage/FaqPage"));
+const AdvisoryBoard = lazy(() => import("./components/pages/aboutUsPage/dropdown/advisory-board/AdvisoryBoard"));
+const ChairmanMessage = lazy(() => import("./components/pages/aboutUsPage/dropdown/chairman-message/ChairmanMessage"));
+const VchairpersonMessage = lazy(() => import("./components/pages/aboutUsPage/dropdown/vice-chairperson-message/VchairpersonMessage"));
+const DirectorsMessage = lazy(() => import("./components/pages/aboutUsPage/dropdown/director-message/DirectorsMessage"));
+const RecruitedStudent = lazy(() => import("./components/pages/placementPage/recruitedStudent/RecruitedStudent"));
+const StudentTestimonial = lazy(() => import("./components/pages/placementPage/studentTestimonialPage/StudentTestimonial"));
+const ScopeFire = lazy(() => import("./components/pages/placementPage/scopeFireAndSafety/ScopeFire"));
+const DemandPage = lazy(() => import("./components/pages/placementPage/demandAndSupplyPage/DemandPage"));
+const FutureProspectAndScope = lazy(() => import("./components/pages/placementPage/futureProspects/FutureProspectAndScope"));
+const SafetyProgramAndCareer = lazy(() => import("./components/pages/placementPage/safetyProgram/SafetyProgramAndCareer"));
+const PlacementCellPage = lazy(() => import("./components/pages/placementPage/placementCell/PlacementCellPage"));
+const PressReleasePage = lazy(() => import("./components/pages/placementPage/pressReleasePage/PressReleasePage"));
+const AdmissionForm = lazy(() => import("./components/pages/studendCornerPage/admisssionFormPage/AdmissionForm"));
+const PracticalTrainingForm = lazy(() => import("./components/pages/studendCornerPage/practicalTrainingForm/PracticalTrainingForm"));
+const PlacementFormPage = lazy(() => import("./components/pages/studendCornerPage/placementFormPage/PlacementFormPage"));
+const StudentPage = lazy(() => import("./components/pages/studendCornerPage/studentComplaintPage/StudentPage"));
+const CertificationPage = lazy(() => import("./components/pages/studendCornerPage/certificateVerificationPage/CertificationPage"));
+const MarksheetPage = lazy(() => import("./components/pages/studendCornerPage/marksheetCorectionPage/MarksheetPage"));
+const Careers = lazy(() => import("./components/pages/careers/Careers"));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="flex justify-center items-center h-screen">
+    <Loading />
+  </div>
+);
 
 function App() {
   return (
     <>
-      <Suspense fallback={<div className="flex justify-center items-center h-screen">{<Loading/>}</div>}>
+      <Suspense fallback={<LoadingFallback />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/contact" element={<ContactUs />} />
@@ -75,6 +81,7 @@ function App() {
       </Suspense>
 
       <SpeedInsights />
+      <StructuredData />
     </>
   );
 }

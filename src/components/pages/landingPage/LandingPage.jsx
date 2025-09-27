@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Header from '../../common/Header'
 import Navbar from '../../common/Navbar'
 import HeroCaraousel from './HeroCaraousel'
@@ -25,26 +25,29 @@ const LandingPage = () => {
    <>
    <Header/>
    <Navbar/>
-   <HeroCaraousel/>
-   <HonourPage/>
-   <RungtaSection/>
-   <BvocCourses/>
-   <EmphasizeSection/>
-   <FirstAidSection/>
-   <CoursesTableOne/>
-   <CoursesTableTwo/>
-   <CoursesTableThree/>
-   <ConnectExperts/>
-   <CareerFlowchart/>
-   <JifsaSuccess/>
-   <Presence/>
-   <PlacementSection/>
-   <RecruiterAndVideos/>
-   <StudentReviews/>
-   <ContactForm/>
+   <main>
+     <HeroCaraousel/>
+     <HonourPage/>
+     <RungtaSection/>
+     <BvocCourses/>
+     <EmphasizeSection/>
+     <FirstAidSection/>
+     <CoursesTableOne/>
+     <CoursesTableTwo/>
+     <CoursesTableThree/>
+     <ConnectExperts/>
+     <CareerFlowchart/>
+     <JifsaSuccess/>
+     <Presence/>
+     <PlacementSection/>
+     <RecruiterAndVideos/>
+     <StudentReviews/>
+     <ContactForm/>
+   </main>
    <Footer/>
    </>
   )
 }
 
-export default LandingPage
+// Memoize the component to prevent unnecessary re-renders
+export default memo(LandingPage)

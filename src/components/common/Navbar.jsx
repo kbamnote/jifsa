@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Marquee from "react-fast-marquee";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -97,6 +97,7 @@ const Navbar = () => {
                     <ChevronDown
                       size={14}
                       className="transform transition-transform duration-300 group-hover:rotate-180"
+                      aria-hidden="true"
                     />
                   )}
                 </div>
@@ -124,4 +125,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);
