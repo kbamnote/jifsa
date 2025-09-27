@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import { Mail, Phone, Menu } from "lucide-react";
 import logo1 from "../../assets/logo.png";
 import logo2 from "../../assets/logoDishpng.png";
 import logo3 from "../../assets/riu.png";
 import logo4 from "../../assets/DGMS_h_Logo.jpg";
 import { Link } from "react-router-dom";
+import { throttle } from "../../utils/performance";
+import { optimizeImageURL } from "../../utils/imageOptimizer";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const navbarHeight = 80;
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > navbarHeight);
-    };
+  // Throttled scroll handler for better performance
+  const handleScroll = useCallback(throttle(() => {
+    const navbarHeight = 80;
+    const scrollPosition = window.scrollY;
+    setIsScrolled(scrollPosition > navbarHeight);
+  }, 16), []);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const buttonClass =
     "px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base flex items-center gap-2";
@@ -32,25 +35,29 @@ const Header = () => {
           <div className="flex items-center gap-3 flex-wrap">
             <Link to="/">
               <img
-                src={logo1}
-                alt="logo1"
+                src={optimizeImageURL(logo1, { width: 100, quality: 80 })}
+                alt="JIFSA Logo"
                 className="h-12 sm:h-14 object-contain"
+                loading="eager"
               />
             </Link>
             <img
-              src={logo2}
-              alt="logo2"
+              src={optimizeImageURL(logo2, { width: 100, quality: 80 })}
+              alt="Partner Logo 1"
               className="h-12 sm:h-14 object-contain hidden lg:block"
+              loading="lazy"
             />
             <img
-              src={logo3}
-              alt="logo3"
+              src={optimizeImageURL(logo3, { width: 100, quality: 80 })}
+              alt="Partner Logo 2"
               className="h-12 sm:h-14 object-contain hidden lg:block"
+              loading="lazy"
             />
             <img
-              src={logo4}
-              alt="logo4"
+              src={optimizeImageURL(logo4, { width: 100, quality: 80 })}
+              alt="Partner Logo 3"
               className="h-12 sm:h-14 object-contain hidden lg:block"
+              loading="lazy"
             />
           </div>
 
@@ -63,29 +70,31 @@ const Header = () => {
               rel="noopener noreferrer"
               className={buttonClass}
             >
-              <Mail size={18} /> Email Us
+              <Mail size={18} aria-hidden="true" /> Email Us
             </a>
             <a href="tel:9860111868" className={buttonClass}>
-              <Phone size={18} /> 8855885807
+              <Phone size={18} aria-hidden="true" /> 8855885807
             </a>
 
             {/* Mobile/Tablet: Icon buttons */}
             <a
               href="jifsacareers@gmail.com"
               className="lg:hidden flex items-center justify-center bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition"
+              aria-label="Email us"
             >
-              <Mail size={18} />
+              <Mail size={18} aria-hidden="true" />
             </a>
             <a
               href="tel:8855885807"
               className="lg:hidden flex items-center justify-center bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition"
+              aria-label="Call us"
             >
-              <Phone size={18} />
+              <Phone size={18} aria-hidden="true" />
             </a>
 
             {/* Hamburger menu only for tablet & mobile */}
-            <button className="p-2 rounded-md text-blue-600 hover:bg-blue-100 transition lg:hidden">
-              <Menu size={24} />
+            <button className="p-2 rounded-md text-blue-600 hover:bg-blue-100 transition lg:hidden" aria-label="Toggle menu">
+              <Menu size={24} aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -103,24 +112,28 @@ const Header = () => {
           {/* Logos */}
           <div className="flex items-center gap-3 flex-wrap">
             <img
-              src={logo1}
-              alt="logo1"
+              src={optimizeImageURL(logo1, { width: 100, quality: 80 })}
+              alt="JIFSA Logo"
               className="h-12 sm:h-14 object-contain"
+              loading="eager"
             />
             <img
-              src={logo2}
-              alt="logo2"
+              src={optimizeImageURL(logo2, { width: 100, quality: 80 })}
+              alt="Partner Logo 1"
               className="h-12 sm:h-14 object-contain hidden lg:block"
+              loading="lazy"
             />
             <img
-              src={logo3}
-              alt="logo3"
+              src={optimizeImageURL(logo3, { width: 100, quality: 80 })}
+              alt="Partner Logo 2"
               className="h-12 sm:h-14 object-contain hidden lg:block"
+              loading="lazy"
             />
             <img
-              src={logo4}
-              alt="logo4"
+              src={optimizeImageURL(logo4, { width: 100, quality: 80 })}
+              alt="Partner Logo 3"
               className="h-12 sm:h-14 object-contain hidden lg:block"
+              loading="lazy"
             />
           </div>
 
@@ -132,29 +145,31 @@ const Header = () => {
               rel="noopener noreferrer"
               className={buttonClass}
             >
-              <Mail size={16} /> Email Us
+              <Mail size={16} aria-hidden="true" /> Email Us
             </a>
 
             <a href="tel:8855885807" className={buttonClass}>
-              <Phone size={16} /> 8855885807
+              <Phone size={16} aria-hidden="true" /> 8855885807
             </a>
 
             <a
               href="mailto:example@mail.com"
               className="lg:hidden flex items-center justify-center bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition"
+              aria-label="Email us"
             >
-              <Mail size={16} />
+              <Mail size={16} aria-hidden="true" />
             </a>
             <a
               href="tel:9860111868"
               className="lg:hidden flex items-center justify-center bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition"
+              aria-label="Call us"
             >
-              <Phone size={16} />
+              <Phone size={16} aria-hidden="true" />
             </a>
 
             {/* Hamburger menu only for tablet & mobile */}
-            <button className="p-2 rounded-md text-blue-600 hover:bg-blue-100 transition lg:hidden">
-              <Menu size={20} />
+            <button className="p-2 rounded-md text-blue-600 hover:bg-blue-100 transition lg:hidden" aria-label="Toggle menu">
+              <Menu size={20} aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -163,4 +178,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

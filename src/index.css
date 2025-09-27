@@ -5,9 +5,54 @@
 @layer base {
   html {
     font-family: 'Poppins', sans-serif;
+    /* Improve font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Optimize scrolling */
+    scroll-behavior: smooth;
+  }
+  
+  /* Respect user's preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
 html, body {
   overflow-x: hidden;
+  /* Improve rendering performance */
+  will-change: scroll-position;
+}
+
+/* Optimize common components */
+img, video {
+  /* Improve loading performance */
+  loading: lazy;
+  /* Prevent layout shift */
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Optimize animations */
+.animate-spin {
+  will-change: transform;
+}
+
+/* Reduce motion for users who prefer it */
+.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Contain layout for better performance */
+.container, .card, .section {
+  contain: layout style paint;
+}
+
+/* Optimize frequently updated elements */
+.counter, .timer {
+  will-change: contents;
 }
