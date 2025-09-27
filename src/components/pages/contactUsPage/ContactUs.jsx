@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Header from "../../common/Header";
 import Navbar from "../../common/Navbar";
 import Footer from "../../common/Footer";
+import SEO from "../../seo/SEO";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -28,6 +29,11 @@ const ContactUs = () => {
 
   return (
     <>
+     <SEO 
+      title="Contact JIFSA Careers - Fire & Safety Training Institute"
+      description="Contact ST. JOSEPH'S International Fire and Safety Academy for fire safety training programs, industrial safety courses, and professional certification. Call +91 8855885807 or email jifsaadmissions@gmail.com."
+      keywords="JIFSA careers contact, fire safety training contact, safety education contact, fire safety courses contact, placement assistance contact, Nagpur fire safety institute, fire safety jobs contact"
+    />
      <Header/>
      <Navbar/>
       <motion.div 
