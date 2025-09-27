@@ -48,11 +48,12 @@ const HeroCaraousel = () => {
     {banners.map((img, idx) => (
       <div key={idx} className="relative">
         <img
-  src={img}
-  alt={`banner-${idx + 1}`}
-  className="w-full h-auto"
-/>
-
+          src={img}
+          alt={`banner-${idx + 1}`}
+          className="w-full h-auto"
+          loading="eager" // First image should load eagerly
+          decoding="async"
+        />
       </div>
     ))}
   </Slider>

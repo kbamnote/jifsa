@@ -1,31 +1,20 @@
 // Service Worker for caching strategies
-const CACHE_NAME = 'jifsa-careers-v2';
-const DATA_CACHE_NAME = 'jifsa-careers-data-v2';
+const CACHE_NAME = 'jifsa-careers-v1.0.0';
+const DATA_CACHE_NAME = 'jifsa-careers-data-v1.0.0';
 
-// Static assets to cache during installation
+// Static assets to cache during installation - ONLY production assets
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/src/main.jsx',
-  '/src/App.jsx',
-  '/src/index.css',
-  '/src/App.css'
-];
-
-// API endpoints to cache
-const API_ENDPOINTS = [
-  '/get/read-form'
+  '/assets/', // Vite will generate hashed assets
+  '/src/assets/logo.png'
 ];
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
+  console.log('Service Worker installing.');
   event.waitUntil(
     Promise.all([
-      caches.open(CACHE_NAME)
-        .then((cache) => {
-          console.log('Opened static cache');
-          return cache.addAll(STATIC_ASSETS);
-        }),
       self.skipWaiting()
     ])
   );
@@ -38,6 +27,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME && cacheName !== DATA_CACHE_NAME) {
+            console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -51,79 +41,44 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Handle API requests with network-first strategy
-  if (API_ENDPOINTS.some(endpoint => url.pathname.includes(endpoint))) {
+  // Skip caching for requests to other domains (APIs, etc.)
+  if (url.origin !== location.origin) {
+    return;
+  }
+
+  // For HTML requests, serve the cached version but update in background
+  if (request.destination === 'document') {
     event.respondWith(
-      networkFirst(request, DATA_CACHE_NAME)
+      caches.open(CACHE_NAME).then((cache) => {
+        return fetch(request).then((response) => {
+          // Clone the response before using it
+          cache.put(request, response.clone());
+          return response;
+        }).catch(() => {
+          // If network fails, try cache
+          return cache.match(request);
+        });
+      })
     );
     return;
   }
 
-  // Handle static assets with cache-first strategy
-  if (STATIC_ASSETS.includes(url.pathname) || isStaticAsset(url.pathname)) {
-    event.respondWith(
-      cacheFirst(request, CACHE_NAME)
-    );
-    return;
-  }
-
-  // For other requests, try network first, then cache
+  // For other assets, use cache-first strategy
   event.respondWith(
-    networkFirst(request, CACHE_NAME)
+    caches.match(request).then((response) => {
+      // Return cached version if available
+      if (response) {
+        return response;
+      }
+      
+      // Otherwise fetch from network and cache
+      return fetch(request).then((networkResponse) => {
+        return caches.open(CACHE_NAME).then((cache) => {
+          // Cache the response for future requests
+          cache.put(request, networkResponse.clone());
+          return networkResponse;
+        });
+      });
+    })
   );
 });
-
-// Cache-first strategy
-async function cacheFirst(request, cacheName) {
-  const cachedResponse = await caches.match(request);
-  if (cachedResponse) {
-    return cachedResponse;
-  }
-
-  try {
-    const networkResponse = await fetch(request);
-    
-    // Cache the response for future requests
-    const cache = await caches.open(cacheName);
-    cache.put(request, networkResponse.clone());
-    
-    return networkResponse;
-  } catch (error) {
-    // If network fails and not in cache, return a fallback
-    return new Response('Offline content', {
-      status: 200,
-      headers: { 'Content-Type': 'text/html' }
-    });
-  }
-}
-
-// Network-first strategy
-async function networkFirst(request, cacheName) {
-  try {
-    const networkResponse = await fetch(request);
-    
-    // Cache the response for future requests
-    const cache = await caches.open(cacheName);
-    cache.put(request, networkResponse.clone());
-    
-    return networkResponse;
-  } catch (error) {
-    // If network fails, try cache
-    const cachedResponse = await caches.match(request);
-    if (cachedResponse) {
-      return cachedResponse;
-    }
-    
-    // If nothing works, return a fallback
-    return new Response('Network error occurred', {
-      status: 408,
-      headers: { 'Content-Type': 'text/plain' }
-    });
-  }
-}
-
-// Check if a URL points to a static asset
-function isStaticAsset(pathname) {
-  const staticExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.woff', '.woff2'];
-  return staticExtensions.some(ext => pathname.endsWith(ext));
-}

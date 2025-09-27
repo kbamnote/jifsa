@@ -1,24 +1,27 @@
 import React, { memo } from 'react'
 import Header from '../../common/Header'
 import Navbar from '../../common/Navbar'
-import HeroCaraousel from './HeroCaraousel'
-import HonourPage from './HonourPage'
-import RungtaSection from './RungtaSection'
-import BvocCourses from './BvocCourses'
-import EmphasizeSection from './EmphasizeSection'
-import FirstAidSection from './FirstAidSection'
-import CoursesTableOne from '../../tables/CoursesTableOne'
-import CoursesTableTwo from '../../tables/CoursesTableTwo'
-import CoursesTableThree from '../../tables/CoursesTableThree'
-import ConnectExperts from './ConnectExperts'
-import CareerFlowchart from './CareerFlowchart'
-import JifsaSuccess from './JifsaSuccess'
-import Presence from './Presence'
-import PlacementSection from './PlacementSection'
-import RecruiterAndVideos from './RecriterAndVideos'
-import StudentReviews from './StudentReviews'
-import ContactForm from './ContactForm'
-import Footer from '../../common/Footer'
+import LazySection from '../../common/LazySection'
+
+// Lazy load heavy components individually for better performance
+const HeroCaraousel = React.lazy(() => import('./HeroCaraousel'))
+const HonourPage = React.lazy(() => import('./HonourPage'))
+const RungtaSection = React.lazy(() => import('./RungtaSection'))
+const BvocCourses = React.lazy(() => import('./BvocCourses'))
+const EmphasizeSection = React.lazy(() => import('./EmphasizeSection'))
+const FirstAidSection = React.lazy(() => import('./FirstAidSection'))
+const CoursesTableOne = React.lazy(() => import('../../tables/CoursesTableOne'))
+const CoursesTableTwo = React.lazy(() => import('../../tables/CoursesTableTwo'))
+const CoursesTableThree = React.lazy(() => import('../../tables/CoursesTableThree'))
+const ConnectExperts = React.lazy(() => import('./ConnectExperts'))
+const CareerFlowchart = React.lazy(() => import('./CareerFlowchart'))
+const JifsaSuccess = React.lazy(() => import('./JifsaSuccess'))
+const Presence = React.lazy(() => import('./Presence'))
+const PlacementSection = React.lazy(() => import('./PlacementSection'))
+const RecruiterAndVideos = React.lazy(() => import('./RecriterAndVideos'))
+const StudentReviews = React.lazy(() => import('./StudentReviews'))
+const ContactForm = React.lazy(() => import('./ContactForm'))
+const Footer = React.lazy(() => import('../../common/Footer'))
 import SEO from '../../seo/SEO'
 
 const LandingPage = () => {
@@ -32,25 +35,25 @@ const LandingPage = () => {
    <Header/>
    <Navbar/>
    <main>
-     <HeroCaraousel/>
-     <HonourPage/>
-     <RungtaSection/>
-     <BvocCourses/>
-     <EmphasizeSection/>
-     <FirstAidSection/>
-     <CoursesTableOne/>
-     <CoursesTableTwo/>
-     <CoursesTableThree/>
-     <ConnectExperts/>
-     <CareerFlowchart/>
-     <JifsaSuccess/>
-     <Presence/>
-     <PlacementSection/>
-     <RecruiterAndVideos/>
-     <StudentReviews/>
-     <ContactForm/>
+     <LazySection component={HeroCaraousel} />
+     <LazySection component={HonourPage} />
+     <LazySection component={RungtaSection} />
+     <LazySection component={BvocCourses} />
+     <LazySection component={EmphasizeSection} />
+     <LazySection component={FirstAidSection} />
+     <LazySection component={CoursesTableOne} />
+     <LazySection component={CoursesTableTwo} />
+     <LazySection component={CoursesTableThree} />
+     <LazySection component={ConnectExperts} />
+     <LazySection component={CareerFlowchart} />
+     <LazySection component={JifsaSuccess} />
+     <LazySection component={Presence} />
+     <LazySection component={PlacementSection} />
+     <LazySection component={RecruiterAndVideos} />
+     <LazySection component={StudentReviews} />
+     <LazySection component={ContactForm} />
    </main>
-   <Footer/>
+   <LazySection component={Footer} />
    </>
   )
 }

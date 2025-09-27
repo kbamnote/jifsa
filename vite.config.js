@@ -10,7 +10,10 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['lucide-react', 'framer-motion', 'react-slick'],
+          ui: ['lucide-react', 'framer-motion'],
+          carousel: ['react-slick', 'slick-carousel'],
+          swiper: ['swiper'],
+          forms: ['react-hook-form'],
           utils: ['axios', 'react-fast-marquee', 'react-intersection-observer']
         }
       }
@@ -21,11 +24,29 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
+        drop_debugger: true,
+        pure_funcs: ['console.info', 'console.debug', 'console.warn']
+      },
+      mangle: true,
+      format: {
+        comments: false
       }
-    }
+    },
+    sourcemap: false,
+    brotliSize: true,
+    chunkSizeWarningLimit: 1000
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom']
+  },
+  css: {
+    postcss: {
+      plugins: [
+        require('autoprefixer'),
+        require('cssnano')({
+          preset: 'default'
+        })
+      ]
+    }
   }
 })

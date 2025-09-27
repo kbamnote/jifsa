@@ -1,71 +1,78 @@
 // Image optimization utilities
 
-// Generate responsive image sources
-export const generateImageSources = (baseSrc, sizes = [320, 640, 1024, 1280]) => {
-  return sizes.map(size => ({
-    src: `${baseSrc}?w=${size}`,
-    media: `(max-width: ${size}px)`
-  }));
+// Generate responsive image attributes
+export const generateImageAttributes = (src, alt, className = '', width, height) => {
+  // Convert to WebP if supported
+  const webpSrc = convertToWebP(src);
+  
+  return {
+    src: webpSrc,
+    alt: alt,
+    className: `lazy ${className}`,
+    loading: 'lazy',
+    decoding: 'async',
+    'data-src': webpSrc,
+    ...(width && { width }),
+    ...(height && { height })
+  };
 };
 
-// Lazy load images with intersection observer
-export const lazyLoadImages = () => {
+// Optimize image loading with Intersection Observer
+export const optimizeImageLoading = () => {
+  // Check if Intersection Observer is supported
+  if (!('IntersectionObserver' in window)) {
+    // Fallback for older browsers
+    const images = document.querySelectorAll('img[data-src]');
+    images.forEach(img => {
+      img.src = img.dataset.src;
+      img.classList.remove('lazy');
+    });
+    return;
+  }
+
+  // Create observer for lazy loading
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
-        const src = img.dataset.src;
-        
-        if (src) {
-          img.src = src;
-          img.classList.remove('lazy');
-          img.removeAttribute('data-src');
-        }
-        
-        observer.unobserve(img);
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+        imageObserver.unobserve(img);
       }
     });
   });
 
-  document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
-  });
+  // Observe all images with data-src attribute
+  const images = document.querySelectorAll('img[data-src]');
+  images.forEach(img => imageObserver.observe(img));
 };
 
-// Optimize image loading with loading attribute
-export const setImageLoading = (imgElement, loadingType = 'lazy') => {
-  if ('loading' in HTMLImageElement.prototype) {
-    imgElement.loading = loadingType;
-  } else {
-    // Fallback for browsers that don't support loading attribute
-    lazyLoadImages();
+// Convert image to WebP format if supported
+export const convertToWebP = (src) => {
+  if (!src) return src;
+  
+  // Check if browser supports WebP
+  const supportsWebP = (() => {
+    const canvas = document.createElement('canvas');
+    if (!canvas.getContext) return false;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return false;
+    canvas.width = 1;
+    canvas.height = 1;
+    return canvas.toDataURL('image/webp').indexOf('webp') > -1;
+  })();
+
+  // If WebP is supported and the image is not already WebP, convert it
+  if (supportsWebP && src.indexOf('.webp') === -1) {
+    const ext = src.split('.').pop();
+    return src.replace(`.${ext}`, '.webp');
   }
-};
-
-// Generate optimized image URL with compression parameters
-export const optimizeImageURL = (src, options = {}) => {
-  const {
-    width,
-    height,
-    quality = 80,
-    format = 'auto'
-  } = options;
-
-  // If it's already an optimized URL, return as is
-  if (src.includes('?')) return src;
-
-  // Add optimization parameters
-  const params = new URLSearchParams();
-  if (width) params.append('w', width);
-  if (height) params.append('h', height);
-  if (quality) params.append('q', quality);
-  if (format) params.append('f', format);
-
-  return `${src}?${params.toString()}`;
+  
+  return src;
 };
 
 // Preload critical images
-export const preloadImages = (imageUrls) => {
+export const preloadCriticalImages = (imageUrls) => {
   imageUrls.forEach(url => {
     const link = document.createElement('link');
     link.rel = 'preload';
@@ -75,10 +82,10 @@ export const preloadImages = (imageUrls) => {
   });
 };
 
-// Convert images to WebP format for better compression
-export const convertToWebP = (src) => {
-  if (src.endsWith('.jpg') || src.endsWith('.jpeg') || src.endsWith('.png')) {
-    return src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-  }
-  return src;
+// Generate responsive image sources
+export const generateResponsiveImageSources = (baseUrl, sizes = [320, 480, 768, 1024, 1200]) => {
+  return sizes.map(size => ({
+    src: `${baseUrl}?w=${size}`,
+    media: `(max-width: ${size}px)`
+  }));
 };

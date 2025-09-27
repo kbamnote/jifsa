@@ -5,27 +5,6 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import Loading from './components/common/Loading'
 import ErrorBoundary from './components/common/ErrorBoundary'
-import { addResourceHints } from './utils/resourcePreloader'
-import { initPerformanceMonitoring } from './utils/analytics'
-
-// Initialize performance monitoring
-initPerformanceMonitoring();
-
-// Add resource hints for better performance
-addResourceHints();
-
-// Register service worker for caching
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/src/sw.js')
-      .then((registration) => {
-        console.log('SW registered: ', registration);
-      })
-      .catch((registrationError) => {
-        console.log('SW registration failed: ', registrationError);
-      });
-  });
-}
 
 // Create a loading fallback component
 const LoadingFallback = () => (

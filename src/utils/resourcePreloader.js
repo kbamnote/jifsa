@@ -2,7 +2,7 @@
 
 // Preload critical resources
 export const preloadCriticalResources = () => {
-  // Preload key fonts
+  // Preload key fonts with higher priority
   const fontLinks = [
     'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'
   ];
@@ -12,32 +12,6 @@ export const preloadCriticalResources = () => {
     link.rel = 'preload';
     link.as = 'style';
     link.href = href;
-    document.head.appendChild(link);
-  });
-  
-  // Preload key images
-  const criticalImages = [
-    '/src/assets/logo.png'
-  ];
-  
-  criticalImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
-};
-
-// Prefetch likely next pages
-export const prefetchLikelyPages = () => {
-  const likelyPages = [
-    '/contact',
-    '/courses',
-    '/about'
-  ];
-  
-  likelyPages.forEach(page => {
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.href = page;
     document.head.appendChild(link);
   });
 };
@@ -75,30 +49,12 @@ export const dnsPrefetch = () => {
   });
 };
 
-// Preload API endpoints
-export const preloadAPIEndpoints = () => {
-  // Example of preloading API data
-  // In practice, you might want to fetch and cache this data
-  const apiEndpoints = [
-    '/get/read-form'
-  ];
-  
-  apiEndpoints.forEach(endpoint => {
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.href = endpoint;
-    document.head.appendChild(link);
-  });
-};
-
 // Resource hinting for better performance
 export const addResourceHints = () => {
   // Combine all resource optimization techniques
   preloadCriticalResources();
-  prefetchLikelyPages();
   preconnectExternalDomains();
   dnsPrefetch();
-  preloadAPIEndpoints();
 };
 
 // Lazy load non-critical resources
