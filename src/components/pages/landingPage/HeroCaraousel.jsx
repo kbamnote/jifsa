@@ -51,8 +51,6 @@ const HeroCaraousel = () => {
           src={img}
           alt={`banner-${idx + 1}`}
           className="w-full h-auto"
-          loading="eager" // First image should load eagerly
-          decoding="async"
         />
       </div>
     ))}

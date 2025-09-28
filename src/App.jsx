@@ -34,7 +34,7 @@ const CertificationPage = lazy(() => import("./components/pages/studendCornerPag
 const MarksheetPage = lazy(() => import("./components/pages/studendCornerPage/marksheetCorectionPage/MarksheetPage"));
 const Careers = lazy(() => import("./components/pages/careers/Careers"));
 
-// Loading fallback component - only for landing page
+// Loading fallback component
 const LoadingFallback = () => (
   <div className="flex justify-center items-center h-screen">
     <Loading />
@@ -42,47 +42,51 @@ const LoadingFallback = () => (
 );
 
 function App() {
+  React.useEffect(() => {
+    // Lazy load non-critical resources after initial render
+    setTimeout(() => {
+      lazyLoadNonCriticalResources();
+    }, 2000);
+  }, []);
+
   return (
     <>
-      <Routes>
-        {/* Only the landing page has loading spinner */}
-        <Route path="/" element={
-          <Suspense fallback={<LoadingFallback />}>
-            <LandingPage />
-          </Suspense>
-        } />
-        {/* All other routes load without loading spinner */}
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/gallery" element={<HeroGallery />} />
-        <Route path="/resedent" element={<ResedentPage />} />
-        <Route path="/vision-mission" element={<JifsaVandM />} />
-        <Route path="/membership" element={<MembershipAndAcc />} />
-        <Route path="/advisory-board" element={<AdvisoryBoard />} />
-        <Route path="/chairman-message" element={<ChairmanMessage />} />
-        <Route path="/directors-message" element={<DirectorsMessage />} />
-        <Route path="/qualifications" element={<CoursePage />} />
-        <Route path="/online-courses" element={<OnlineCoursePage />} />
-        <Route path="/fire-safety-faqs" element={<FaqPage />} />
-        <Route path="/recruited-students" element={<RecruitedStudent />} />
-        <Route path="/student-testimonials" element={<StudentTestimonial />} />
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/gallery" element={<HeroGallery />} />
+          <Route path="/resedent" element={<ResedentPage />} />
+          <Route path="/vision-mission" element={<JifsaVandM />} />
+          <Route path="/membership" element={<MembershipAndAcc />} />
+          <Route path="/advisory-board" element={<AdvisoryBoard />} />
+          <Route path="/chairman-message" element={<ChairmanMessage />} />
+          <Route path="/directors-message" element={<DirectorsMessage />} />
+          <Route path="/qualifications" element={<CoursePage />} />
+          <Route path="/online-courses" element={<OnlineCoursePage />} />
+          <Route path="/fire-safety-faqs" element={<FaqPage />} />
+          <Route path="/recruited-students" element={<RecruitedStudent />} />
+          <Route path="/student-testimonials" element={<StudentTestimonial />} />
 
-        {/* Placement-related routes */}
-        <Route path="/scope-fire-safety" element={<ScopeFire />} />
-        <Route path="/demand-supply-fire-safety" element={<DemandPage />} />
-        <Route path="/future-prospects" element={<FutureProspectAndScope />} />
-        <Route path="/safety-career" element={<SafetyProgramAndCareer />} />
-        <Route path="/placement-cell" element={<PlacementCellPage />} />
-        <Route path="/press-release" element={<PressReleasePage />} />
+          {/* Placement-related routes */}
+          <Route path="/scope-fire-safety" element={<ScopeFire />} />
+          <Route path="/demand-supply-fire-safety" element={<DemandPage />} />
+          <Route path="/future-prospects" element={<FutureProspectAndScope />} />
+          <Route path="/safety-career" element={<SafetyProgramAndCareer />} />
+          <Route path="/placement-cell" element={<PlacementCellPage />} />
+          <Route path="/press-release" element={<PressReleasePage />} />
 
-        <Route path="/admission-form" element={<AdmissionForm />} />
-        <Route path="/practical-training-forms" element={<PracticalTrainingForm />} />
-        <Route path="/placement-forms" element={<PlacementFormPage />} />
-        <Route path="/student-complaint" element={<StudentPage />} />
-        <Route path="/certificate-verification" element={<CertificationPage />} />
-        <Route path="/marksheet-correction" element={<MarksheetPage />} />
-        <Route path="/vice-chairperson-message" element={<VchairpersonMessage />} />
-        <Route path="/careers" element={<Careers />} />
-      </Routes>
+          <Route path="/admission-form" element={<AdmissionForm />} />
+          <Route path="/practical-training-forms" element={<PracticalTrainingForm />} />
+          <Route path="/placement-forms" element={<PlacementFormPage />} />
+          <Route path="/student-complaint" element={<StudentPage />} />
+          <Route path="/certificate-verification" element={<CertificationPage />} />
+          <Route path="/marksheet-correction" element={<MarksheetPage />} />
+          <Route path="/vice-chairperson-message" element={<VchairpersonMessage />} />
+
+          <Route path="/careers" element={<Careers />} />
+        </Routes>
+      </Suspense>
 
       <SpeedInsights />
       <StructuredData />

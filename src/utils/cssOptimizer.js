@@ -93,3 +93,55 @@ export const addCSSContainment = () => {
     container.style.contain = 'layout style paint';
   });
 };
+
+// Optimize CSS for critical rendering path
+export const optimizeCriticalRenderingPath = () => {
+  // Add critical CSS inline
+  const criticalCSS = `
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .loading-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    /* Add other critical styles here */
+  `;
+  
+  const style = document.createElement('style');
+  style.textContent = criticalCSS;
+  document.head.appendChild(style);
+  
+  // Defer non-critical CSS
+  const nonCriticalLinks = document.querySelectorAll('link[rel="stylesheet"]:not([media="print"])');
+  nonCriticalLinks.forEach(link => {
+    if (!link.media || link.media === 'all') {
+      link.media = 'print';
+      link.onload = function() {
+        this.media = 'all';
+      };
+    }
+  });
+};
+
+// Add CSS optimization on page load
+export const initCSSOptimization = () => {
+  // Optimize critical rendering path
+  optimizeCriticalRenderingPath();
+  
+  // Respect reduced motion preferences
+  respectReducedMotion();
+  
+  // Optimize font loading
+  optimizeFontLoading();
+  
+  // Add CSS containment
+  setTimeout(addCSSContainment, 1000);
+};

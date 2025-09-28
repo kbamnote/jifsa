@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const SEO = ({ 
+const SEO = ({
   title = "JIFSA Careers - Fire & Safety Education and Training", 
   description = "JIFSA Careers offers professional fire and safety education, training programs, and guaranteed placement assistance.",
   keywords = "JIFSA careers, fire safety training, safety education, fire safety courses, placement assistance",
