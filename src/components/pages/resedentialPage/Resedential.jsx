@@ -5,12 +5,12 @@ import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 
-import one from "../../../assets/residentialpageimage1.jpg";
-import two from "../../../assets/residentialpageimage2.jpg";
-import three from "../../../assets/residentialpageimage3.jpg";
-import four from "../../../assets/residentialpageimage4.jpg";
-import five from "../../../assets/residentialpageimage5.jpg";
-import six from "../../../assets/residentialpageimage6.jpg";
+import one from "../../../assets/residentialpageimage1.webp";
+import two from "../../../assets/residentialpageimage2.webp";
+import three from "../../../assets/residentialpageimage3.webp";
+import four from "../../../assets/residentialpageimage4.webp";
+import five from "../../../assets/residentialpageimage5.webp";
+import six from "../../../assets/residentialpageimage6.webp";
 
 const Residential = () => {
   const images = [one, two, three, four, five, six];
