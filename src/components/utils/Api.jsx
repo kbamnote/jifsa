@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL:'https://jifsa-backend.onrender.com/'
+    baseURL:'https://elite-backend-three.vercel.app'
 })
 
 

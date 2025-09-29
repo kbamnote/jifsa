@@ -32,7 +32,9 @@ const AdmissionForm = () => {
 
             {/* Scholarship Online */}
             <a
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSed_5W-BEuqWxGraBA752qCB6ZZfU2z9eFs6i7I8k9r_Xh_LQ/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block py-3 px-5 rounded-lg bg-blue-50 hover:bg-blue-100 hover:text-blue-700 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               🌐 JIFSA Scholarship (Online form)
@@ -50,7 +52,9 @@ const AdmissionForm = () => {
 
             {/* Admission Online */}
             <a
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfcCvlkz0uxHdBqfWqHMcXHU8TkGezAV4W2i97-Pvad6lp4RQ/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block py-3 px-5 rounded-lg bg-blue-50 hover:bg-blue-100 hover:text-blue-700 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               📩 JIFSA Admission (Online form)

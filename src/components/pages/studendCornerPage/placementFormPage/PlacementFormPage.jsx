@@ -29,9 +29,11 @@ const PlacementFormPage = () => {
               📑 Placement Form (Offline)
             </a>
 
-            {/* Placement Online (placeholder for now) */}
+            {/* Placement Online */}
             <a
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdtNGhJay4us_kCY498QxGv2fgZcCL6yQgbKDqHQ5S0fgzOig/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block py-3 px-5 rounded-lg bg-blue-50 hover:bg-blue-100 hover:text-blue-700 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               🌐 Placement Form (Online)

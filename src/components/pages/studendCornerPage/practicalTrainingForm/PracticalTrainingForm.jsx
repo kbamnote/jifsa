@@ -70,7 +70,7 @@ const PracticalTrainingForm = () => {
             <p>
               📞 For any further query or doubt regarding practical training, please
               contact: <span className="font-semibold">+91 8855885807</span> <br />
-              (<span className="italic">Basant Bareth, Practical Coordinator</span>)
+            
             </p>
           </div>
         </div>

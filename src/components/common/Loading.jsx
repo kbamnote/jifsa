@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/jifsaLogo.png"; // update path to your logo
+import logo from "../../assets/logo.png"; // update path to your logo
 
 const Loading = () => {
   return (
