@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Users, Briefcase, MapPin } from 'lucide-react';
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import mapImg from '../../../assets/India Map (1).png';
+import mapImg from '../../../assets/IndiaM.png';
 
 const Presence = () => {
   const { ref, inView } = useInView({
