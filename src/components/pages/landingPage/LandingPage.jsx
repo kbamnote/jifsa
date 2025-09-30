@@ -25,9 +25,9 @@ const LandingPage = () => {
   return (
    <>
    <SEO 
-      title="JIFSA Careers - Fire & Safety Education and Training | Top Placement"
-      description="JIFSA Careers offers professional fire and safety education, training programs, and guaranteed placement assistance. Join India's leading fire safety institute for career growth."
-      keywords="JIFSA careers, fire safety training, safety education, fire safety courses, placement assistance, fire safety certification, industrial safety, fire fighting courses, safety training institute, JIFSA Nagpur, fire safety jobs, safety officer training"
+      title="Fire and Safety Course in India | Best Fire Safety Institute | JIFSA Careers"
+      description="Leading fire and safety institute in India offering job-oriented courses, diploma, certificate, and degree programs in fire safety, industrial safety, and HSE. 100% placement assistance guaranteed."
+      keywords="fire and safety course in india, fire and safety institute in india, fire institute, safety institute, fire & safety course, fire & safety institute, job oriented course, industrial safety course, career in fire and safety, diploma in fire and safety, certificate in fire and safety, best fire safety institute, fire safety training institute india, fire safety education, occupational safety course, workplace safety training, fire fighting training, safety officer course, JIFSA careers, fire safety certification india, HSE course, NEBOSH course india, IOSH course, fire safety engineering, industrial safety management"
     />
    <Header/>
    <Navbar/>
