@@ -1,138 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Home Page -->
   <url>
-    <loc>https://jifsacareers.com/</loc>
+    <loc>https://www.jifsacareers.com/</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Important Pages -->
   <url>
-    <loc>https://jifsacareers.com/contact</loc>
+    <loc>https://www.jifsacareers.com/contact</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/gallery</loc>
+    <loc>https://www.jifsacareers.com/gallery</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/resedent</loc>
+    <loc>https://www.jifsacareers.com/resedent</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/vision-mission</loc>
+    <loc>https://www.jifsacareers.com/vision-mission</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/membership</loc>
+    <loc>https://www.jifsacareers.com/membership</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/advisory-board</loc>
+    <loc>https://www.jifsacareers.com/advisory-board</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/chairman-message</loc>
+    <loc>https://www.jifsacareers.com/chairman-message</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/directors-message</loc>
+    <loc>https://www.jifsacareers.com/directors-message</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/qualifications</loc>
+    <loc>https://www.jifsacareers.com/qualifications</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/online-courses</loc>
+    <loc>https://www.jifsacareers.com/online-courses</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/fire-safety-faqs</loc>
+    <loc>https://www.jifsacareers.com/fire-safety-faqs</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/recruited-students</loc>
+    <loc>https://www.jifsacareers.com/recruited-students</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/student-testimonials</loc>
+    <loc>https://www.jifsacareers.com/student-testimonials</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/scope-fire-safety</loc>
+    <loc>https://www.jifsacareers.com/scope-fire-safety</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/demand-supply-fire-safety</loc>
+    <loc>https://www.jifsacareers.com/demand-supply-fire-safety</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/future-prospects</loc>
+    <loc>https://www.jifsacareers.com/future-prospects</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/safety-career</loc>
+    <loc>https://www.jifsacareers.com/safety-career</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/placement-cell</loc>
+    <loc>https://www.jifsacareers.com/placement-cell</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/press-release</loc>
+    <loc>https://www.jifsacareers.com/press-release</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/admission-form</loc>
+    <loc>https://www.jifsacareers.com/admission-form</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/practical-training-forms</loc>
+    <loc>https://www.jifsacareers.com/practical-training-forms</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/placement-forms</loc>
+    <loc>https://www.jifsacareers.com/placement-forms</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/student-complaint</loc>
+    <loc>https://www.jifsacareers.com/student-complaint</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/certificate-verification</loc>
+    <loc>https://www.jifsacareers.com/certificate-verification</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/marksheet-correction</loc>
+    <loc>https://www.jifsacareers.com/marksheet-correction</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://jifsacareers.com/careers</loc>
+    <loc>https://www.jifsacareers.com/careers</loc>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
 </urlset>

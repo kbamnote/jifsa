@@ -1,8 +1,21 @@
+# ================================
+# Robots.txt for JIFSA Careers
+# ================================
+
 User-agent: *
 Allow: /
 
-Sitemap: https://jifsacareers.com/sitemap.xml
+# Block admin and private directories
+Disallow: /admin/
+Disallow: /private/
 
+# Block all PDF files (optional)
+Disallow: /*.pdf$
+
+# Sitemap location
+Sitemap: https://www.jifsacareers.com/sitemap.xml
+
+# Specific bot allowances (redundant but fine for clarity)
 User-agent: Googlebot
 Allow: /
 
@@ -15,9 +28,4 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# Directories
-Disallow: /admin/
-Disallow: /private/
-
-# Files
-Disallow: /*.pdf$
+# End of robots.txt
