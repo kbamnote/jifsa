@@ -5,10 +5,11 @@ import { addDetail } from "../../utils/Api";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
-    firstName: "",
+    fullName: "",
     email: "",
     phoneNo: "",
     message: "",
+    productCompany: "JIFSA"
   });
   const [loading, setLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
@@ -30,7 +31,7 @@ function ContactForm() {
       console.log("Form submitted:", response.data);
 
       setSubmitStatus('success');
-      setFormData({ firstName: "", email: "", phoneNo: "", message: "" });
+      setFormData({ fullName: "", email: "", phoneNo: "", message: "" });
       
       // Hide success message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);
@@ -117,9 +118,9 @@ function ContactForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <motion.input
                 type="text"
-                name="firstName"
+                name="fullName"
                 placeholder="Full Name"
-                value={formData.firstName}
+                value={formData.fullName}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition"
                 required

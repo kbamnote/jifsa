@@ -8,11 +8,11 @@ import { addDetail } from "../../utils/Api"; // Import the API function
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    fullName: '',
     email: '',
     phoneNo: '',
-    message: ''
+    message: '',
+    productCompany: "JIFSA"
   });
 
   const [loading, setLoading] = useState(false);
@@ -35,11 +35,11 @@ const ContactUs = () => {
     try {
       // Prepare the data for API
       const detailData = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
+        fullName: formData.fullName,
         email: formData.email,
         phoneNo: formData.phoneNo,
-        message: formData.message
+        message: formData.message,
+        productCompany: formData.productCompany
       };
 
       // Call the API
@@ -50,11 +50,11 @@ const ContactUs = () => {
       
       // Reset form after successful submission
       setFormData({
-        firstName: '',
-        lastName: '',
+        fullName: '',
         email: '',
         phoneNo: '',
-        message: ''
+        message: '',
+        productCompany: "JIFSA"
       });
 
     } catch (error) {
@@ -288,19 +288,19 @@ const ContactUs = () => {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <motion.div whileFocus={{ scale: 1.02 }}>
                     <label
-                      htmlFor="firstName"
+                      htmlFor="fullName"
                       className="block text-sm font-bold text-gray-700 mb-2 font-['Poppins']"
                     >
-                      First Name *
+                      Full Name *
                     </label>
                     <input
                       type="text"
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
+                      id="fullName"
+                      name="fullName"
+                      value={formData.fullName}
                       onChange={handleInputChange}
                       required
                       disabled={loading}
@@ -308,25 +308,7 @@ const ContactUs = () => {
                       placeholder="Your first name"
                     />
                   </motion.div>
-                  <motion.div whileFocus={{ scale: 1.02 }}>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-bold text-gray-700 mb-2 font-['Poppins']"
-                    >
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      disabled={loading}
-                      className="w-full p-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-300 font-['Poppins'] disabled:bg-gray-100 disabled:cursor-not-allowed"
-                      placeholder="Your last name"
-                    />
-                  </motion.div>
+                 
                 </div>
 
                 <motion.div whileFocus={{ scale: 1.02 }}>
