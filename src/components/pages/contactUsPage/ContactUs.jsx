@@ -155,7 +155,7 @@ const ContactUs = () => {
                     </div>
                     <h3 className="font-bold text-gray-900 font-['Poppins']">Call for inquiry</h3>
                   </div>
-                  <p className="text-gray-600 font-medium font-['Poppins']">+91 8855885807</p>
+                  <p className="text-gray-600 font-medium font-['Poppins']">9119494807 / 8855885807</p>
                 </motion.div>
 
                 {/* Email */}

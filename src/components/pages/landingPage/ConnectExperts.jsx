@@ -7,14 +7,14 @@ const experts = [
     id: 1,
     title: "E Learning",
     desc: "Online Course & Enquiry",
-    numbers: ["+91-9860111868", "+91-8855885807"],
+    numbers: ["+91-9119494807", "+91-8855885807"],
     color: "from-green-400 to-green-600",
   },
   {
     id: 2,
     title: "DGMS First Aid",
     desc: "Course & Enquiry",
-    numbers: ["+91-9860111868"],
+    numbers: ["+91-9119494807"],
     color: "from-red-400 to-red-600",
   },
   {
@@ -35,14 +35,14 @@ const experts = [
     id: 5,
     title: "Franchisee",
     desc: "Services and Enquiry",
-    numbers: ["+91-9860111868", "+91-7276735659"],
+    numbers: ["+91-9119494807", "+91-7276735659"],
     color: "from-gray-400 to-gray-600",
   },
   {
     id: 6,
     title: "Corporate",
     desc: "Training & Enquiry",
-    numbers: ["+91-8855885807", "+91-9860111868"],
+    numbers: ["+91-8855885807", "+91-9119494807"],
     color: "from-cyan-400 to-cyan-600",
   },
   {

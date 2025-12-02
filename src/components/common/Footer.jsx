@@ -44,9 +44,9 @@ const handleCallbackRequest = () => {
           <div>
             <h3 className="text-xl font-bold mb-6 tracking-wide">COUNSELLING DEPARTMENT</h3>
             <div className="space-y-3 text-gray-200">
-              <p>Nityanjana Soni</p>
+              <p>Sanjana Ramteke</p>
               <p>Call Us : +91-7276568807</p>
-              <p>Mail us : jifsaadmissions@gmail.com</p>
+              <p>Mail us : info@jifsacareers.com</p>
               <p className="mt-4 text-sm text-gray-400">
                 Our team helps students with course guidance, career counselling, and all your academic queries.
               </p>
@@ -57,9 +57,9 @@ const handleCallbackRequest = () => {
           <div>
             <h3 className="text-xl font-bold mb-6 tracking-wide">ADMISSION DEPARTMENT</h3>
             <div className="space-y-3 text-gray-200">
-              <p>Ms. Vaishali Bhandari</p>
-              <p>Call Us : +91-8799959224</p>
-              <p>Mail us : jifsaadmissions@gmail.com</p>
+              <p>Riya Pathak</p>
+              <p>Call Us : +91-9119404807</p>
+              <p>Mail us : hr@eliteassociate.in</p>
               <p className="mt-4 text-sm text-gray-400">
                 Get assistance for enrollment, scholarship guidance, and course registration from our admission experts.
               </p>

@@ -75,10 +75,10 @@ const BvocCourses = () => {
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
               <a
-                href="tel:9860111868"
+                href="tel:9119494807"
                 className="px-4 py-2 sm:px-5 sm:py-2.5 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm sm:text-base"
               >
-                9860111868
+                9119494807
               </a>
               <a
                 href="tel:8855885807"

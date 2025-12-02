@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL:'https://elite-backend-rhrk.onrender.com/'
+    baseURL:'https://elite-backend-production.up.railway.app/'
 })
 
 
