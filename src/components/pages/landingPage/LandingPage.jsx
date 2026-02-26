@@ -1,4 +1,5 @@
-import React, { memo } from 'react'
+import React, { memo, useState, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 import Header from '../../common/Header'
 import Navbar from '../../common/Navbar'
 import HeroCaraousel from './HeroCaraousel'
@@ -20,8 +21,29 @@ import StudentReviews from './StudentReviews'
 import ContactForm from './ContactForm'
 import Footer from '../../common/Footer'
 import SEO from '../../seo/SEO'
+import ContactPopup from '../../modals/ContactPopup'
 
 const LandingPage = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  // Use intersection observer to detect when hero leaves view
+  const { ref: heroRef, inView: heroInView, entry } = useInView({
+    threshold: 0,
+    rootMargin: '-100px 0px 0px 0px' // Slightly offset to trigger earlier or later
+  });
+
+  useEffect(() => {
+    // Determine if user has scrolled DOWN past the hero
+    // entry.boundingClientRect.top < 0 means the top of the hero is above the viewport
+    if (!heroInView && entry && entry.boundingClientRect.top < 0) {
+      // Small delay for better UX
+      const timer = setTimeout(() => {
+        setShowPopup(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [heroInView, entry]);
+
   return (
    <>
    <SEO 
@@ -32,7 +54,9 @@ const LandingPage = () => {
    <Header/>
    <Navbar/>
    <main>
-     <HeroCaraousel/>
+     <div ref={heroRef}>
+       <HeroCaraousel/>
+     </div>
      <HonourPage/>
      <RungtaSection/>
      <BvocCourses/>
@@ -51,6 +75,11 @@ const LandingPage = () => {
      <ContactForm/>
    </main>
    <Footer/>
+
+   <ContactPopup 
+     isOpen={showPopup} 
+     onClose={() => setShowPopup(false)} 
+   />
    </>
   )
 }

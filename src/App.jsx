@@ -3,6 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import React, { Suspense, lazy } from "react";
 import Loading from "./components/common/Loading";
 import StructuredData from "./components/seo/StructuredData";
+import Chatbot from "./components/common/Chatbot";
 
 // Lazy imports for all pages to improve initial load time
 const LandingPage = lazy(() => import("./components/pages/landingPage/LandingPage"));
@@ -90,6 +91,7 @@ function App() {
 
       <SpeedInsights />
       <StructuredData />
+      <Chatbot />
     </>
   );
 }
